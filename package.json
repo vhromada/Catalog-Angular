@@ -29,6 +29,7 @@
     "gulp-load-plugins": "0.7.0",
     "gulp-ng-annotate": "0.2.0",
     "gulp-plumber": "0.6.3",
+    "gulp-styl": "1.03",
     "gulp-pseudoconcat-js": "1.1.0",
     "gulp-uglify": "0.3.1",
     "gulp-util": "2.2.20",

@@ -1,7 +1,7 @@
 var util = require('gulp-util');
 
 module.exports = {
-  appliaction: {
+  application: {
     name: 'Catalog'
   },
   gulp: {
@@ -17,14 +17,17 @@ module.exports = {
       src: 'src/',
       parts: {
         app: 'app/',
-        css: 'css/'
+        css: 'css/',
+        styl: 'styl/'
       },
       srcApp: 'src/app/',
       srcCss: 'src/css/',
+      srcStyl: 'src/styl/',
       buildCss: 'build/css/'
     },
     filename: {
       index: 'index.html',
+      styl: 'catalog.styl',
       css: 'styles.css',
       js: {
         application: 'scripts.js',

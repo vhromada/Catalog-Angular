@@ -18,6 +18,7 @@ if (config.gulp.httpServer.host === 'localhost') {
 config.gulp.filepath = {
   index: config.gulp.dirs.src + config.gulp.filename.index,
   css: config.gulp.dirs.srcCss + config.gulp.filename.css,
+  styl: config.gulp.dirs.srcStyl + config.gulp.filename.styl,
   js: {
     application: config.gulp.dirs.src + config.gulp.filename.js.application,
     vendor: config.gulp.dirs.src + config.gulp.filename.js.vendor,
@@ -43,6 +44,9 @@ config.gulp.paths = {
   ],
   templates: [
     config.gulp.dirs.srcApp + '**/*.html'
+  ],
+  styl: [
+    config.gulp.dirs.srcStyl + '**/*.styl'
   ],
   livereload: config.gulp.generatedFiles
 };
@@ -83,7 +87,7 @@ function httpServer(options) {
 
 gulp.task('templates', function () {
   return gulp.src(config.gulp.paths.templates)
-    .pipe(plugins.angularTemplatecache(config.gulp.filename.js.templates, {module: config.appliaction.name}))
+    .pipe(plugins.angularTemplatecache(config.gulp.filename.js.templates, {module: config.application.name}))
     .pipe(gulp.dest(config.gulp.destinationDir));
 });
 
@@ -125,6 +129,13 @@ gulp.task("js-main", ['js-lint', 'templates'], function () {
     .pipe(gulp.dest(config.gulp.destinationDir));
 });
 
+gulp.task('styl', function () {
+  return gulp.src(config.gulp.filepath.styl)
+    .pipe(plugins.plumber())
+    .pipe(plugins.styl())
+    .pipe(gulp.dest(config.gulp.destinationDir + config.gulp.dirs.parts.css));
+});
+
 gulp.task("watch", function () {
   plugins.livereload.listen(config.gulp.httpServer.lrPort);
   httpServer(config.gulp.httpServer);
@@ -146,6 +157,9 @@ gulp.task("watch", function () {
           gulp.start('js-main');
         }
         break;
+      case 'styl':
+        gulp.start('styl');
+        break;
     }
   }).start();
 
@@ -156,7 +170,7 @@ gulp.task("watch", function () {
 
 gulp.task('devel', function () {
   runSequence(
-    ['js-vendor', 'js-main'],
+    ['styl', 'js-vendor', 'js-main'],
     'watch'
   );
 });
@@ -178,7 +192,7 @@ gulp.task('build-js', ['js-vendor', 'js-main'], function () {
     .pipe(gulp.dest(config.gulp.dirs.build));
 });
 
-gulp.task('build-css', function () {
+gulp.task('build-css', ['styl'], function () {
   return gulp.src([config.gulp.filepath.css])
     .pipe(plugins.cssmin())
     .pipe(gulp.dest(config.gulp.dirs.buildCss));
