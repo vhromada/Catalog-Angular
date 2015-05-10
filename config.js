@@ -1,39 +1,42 @@
 var util = require('gulp-util');
+var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
-  application: {
-    name: 'Catalog'
-  },
   gulp: {
     httpServer: {
       host: util.env.HOST || 'localhost',
       port: util.env.PORT || 8000,
-      lrPort: util.env.LRPORT || 35729,
-      run: false,
-      proxy: false
+      lrPort: util.env.LRPORT || 35729
     },
     dirs: {
-      build: 'build/',
-      src: 'src/',
-      parts: {
-        app: 'app/',
-        css: 'css/',
-        styl: 'styl/'
-      },
-      srcApp: 'src/app/',
-      srcCss: 'src/css/',
-      srcStyl: 'src/styl/',
-      buildCss: 'build/css/'
+      src: 'app/',
+      build: 'build/'
     },
     filename: {
       index: 'index.html',
-      styl: 'catalog.styl',
-      css: 'styles.css',
       js: {
-        application: 'scripts.js',
-        vendor: 'vendor.js',
-        templates: 'templates.js'
+        application: 'application.js',
+        vendor: 'vendor.js'
       }
     }
+  },
+  webpack: {
+    entry: './app/modules/index.js',
+    output: {
+      filename: 'application.js'
+    },
+    module: {
+      loaders: [
+        {test: /\.css$/, loader: "style!css"}
+      ]
+    },
+    plugins: [
+      new webpack.optimize.DedupePlugin()
+      // uncomment for production. comment out during dev
+      //new webpack.optimize.UglifyJsPlugin({
+      //  mangle: false
+      //})
+    ]
   }
 };
