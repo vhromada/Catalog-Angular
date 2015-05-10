@@ -8,7 +8,7 @@ if (location.protocol === 'https:') {
 
 require('./common/components');
 require('./main');
-require('./catalog.css');
+require('./catalog.styl');
 // nope, we don't bundle this module in...we want to lazy load it!
 // require('modules/captain-list'); 
 

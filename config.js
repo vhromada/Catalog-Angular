@@ -29,10 +29,15 @@ module.exports = function (isDevelopment) {
       module: {
         loaders: [
           {test: /\.css$/, loader: extractTextPlugin.extract("style-loader", "css-loader")},
-          {test: /\.less/, loader: extractTextPlugin.extract("style-loader", "css-loader!less-loader")},
-          {test: /\.scss/, loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
-          {test: /\.sass/, loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
-          {test: /\.styl/, loader: extractTextPlugin.extract("style-loader", "css-loader!stylus-loader")}
+          {test: /\.less$/, loader: extractTextPlugin.extract("style-loader", "css-loader!less-loader")},
+          {test: /\.scss$/, loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
+          {test: /\.sass$/, loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
+          {test: /\.styl$/, loader: extractTextPlugin.extract("style-loader", "css-loader!stylus-loader")},
+          {test: /\.woff$/, loader: "file-loader"},
+          {test: /\.woff2$/, loader: "file-loader"},
+          {test: /\.ttf$/, loader: "file-loader"},
+          {test: /\.eot$/, loader: "file-loader"},
+          {test: /\.svg$/, loader: "file-loader"}
         ]
       },
       plugins: (function () {
