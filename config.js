@@ -16,22 +16,23 @@ module.exports = function (isDevelopment) {
     filename: {
       index: 'index.html',
       js: {
-        application: 'application.js',
+        application: 'app.js',
         vendor: 'vendor.js'
       }
     },
     webpack: {
-      entry: './app/modules/index.js',
+      context: __dirname + '/app',
+      entry: './modules/index.js',
       output: {
-        filename: 'application.js'
+        filename: 'app.js'
       },
       module: {
         loaders: [
-          {test: /\.css$/, loader: "style-loader!css-loader"},
-          {test: /\.less/, loader: "style-loader!css-loader!less-loader"},
-          {test: /\.scss/, loader: "style-loader!css-loader!sass-loader"},
-          {test: /\.sass/, loader: "style-loader!css-loader!sass-loader"},
-          {test: /\.styl/, loader: "style-loader!css-loader!stylus-loader"}
+          {test: /\.css$/, loader: extractTextPlugin.extract("style-loader", "css-loader")},
+          {test: /\.less/, loader: extractTextPlugin.extract("style-loader", "css-loader!less-loader")},
+          {test: /\.scss/, loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
+          {test: /\.sass/, loader: extractTextPlugin.extract("style-loader", "css-loader!sass-loader")},
+          {test: /\.styl/, loader: extractTextPlugin.extract("style-loader", "css-loader!stylus-loader")}
         ]
       },
       plugins: (function () {
