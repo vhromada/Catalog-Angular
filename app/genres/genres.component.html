@@ -1,0 +1,47 @@
+<div class="container-fluid innerMenu">
+    <ul class="nav navbar-nav">
+        <li><a routerLink="/genres/list">All genres</a></li>
+        <li><a (click)="newData()">New data</a></li>
+        <li><a (click)="add()">Add genre</a></li>
+        <li><a (click)="updatePositions()">Update positions</a></li>
+    </ul>
+</div>
+
+{{title}}
+
+<table class="table table-hover" *ngIf="genres && genres.length > 0">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let genre of genres">
+        <td>{{genre.name}}</td>
+        <td><a (click)="moveUp(genre)">Move up</a></td>
+        <td><a (click)="moveDown(genre)">Move down</a></td>
+        <td><a (click)="duplicate(genre)">Duplicate</a></td>
+        <td><a (click)="update(genre)">Edit</a></td>
+        <td><a (click)="remove(genre)">Remove</a></td>
+    </tr>
+    </tbody>
+</table>
+<div *ngIf="!genres || genres.length == 0">No records.</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Count of genres</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td *ngIf="genres">{{genres.length}}</td>
+        <td *ngIf="!genres">0</td>
+    </tr>
+    </tbody>
+</table>
