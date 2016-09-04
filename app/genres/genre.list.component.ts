@@ -4,9 +4,9 @@ import {GenreService} from "./genre.service";
 
 @Component({
   selector: 'genres',
-  templateUrl: 'app/genres/genres.component.html'
+  templateUrl: 'genre.list.component.html'
 })
-export class GenresComponent implements OnInit {
+export class GenreListComponent implements OnInit {
 
   genres: Genre[];
 

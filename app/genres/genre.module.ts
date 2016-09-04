@@ -2,7 +2,8 @@ import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {HttpModule} from "@angular/http";
 import {routing} from "../catalog.routing";
-import {GenresComponent} from "./genres.component";
+import {GenreListComponent} from "./genre.list.component";
+import {GenreAddComponent} from "./genre.add.component";
 import {GenreService} from "./genre.service";
 
 @NgModule({
@@ -12,7 +13,8 @@ import {GenreService} from "./genre.service";
     routing
   ],
   declarations: [
-    GenresComponent
+    GenreListComponent,
+    GenreAddComponent
   ],
   providers: [
     GenreService
