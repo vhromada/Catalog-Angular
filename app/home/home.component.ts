@@ -6,5 +6,4 @@ import {Component} from "@angular/core";
 })
 
 export class HomeComponent {
-  title = 'Catalog of movies, shows, games, music and programs';
 }

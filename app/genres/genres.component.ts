@@ -7,7 +7,7 @@ import {GenreService} from "./genre.service";
   templateUrl: 'app/genres/genres.component.html'
 })
 export class GenresComponent implements OnInit {
-  title: 'Genres';
+
   genres: Genre[];
 
   constructor(private genreService: GenreService) {
@@ -18,25 +18,25 @@ export class GenresComponent implements OnInit {
   }
 
   newData(): void {
-    this.genreService.newData().then(() => this.updateGenres());
+    this.genreService.new().then(() => this.updateGenres());
   }
 
   add(): void {
     let genre = new Genre();
     genre.name = 'Genre' + this.genres.length;
-    this.genreService.addGenre(genre).then(() => this.updateGenres());
+    this.genreService.add(genre).then(() => this.updateGenres());
   }
 
   update(genre: Genre): void {
-    this.genreService.updateGenre(genre).then(() => this.updateGenres());
+    this.genreService.update(genre).then(() => this.updateGenres());
   }
 
   duplicate(genre: Genre): void {
-    this.genreService.duplicateGenre(genre).then(() => this.updateGenres());
+    this.genreService.duplicate(genre).then(() => this.updateGenres());
   }
 
   remove(genre: Genre): void {
-    this.genreService.removeGenre(genre).then(() => this.updateGenres());
+    this.genreService.remove(genre).then(() => this.updateGenres());
   }
 
   moveUp(genre: Genre): void {
@@ -52,7 +52,7 @@ export class GenresComponent implements OnInit {
   }
 
   private updateGenres(): void {
-    this.genreService.getGenres().then(genres => this.genres = genres);
+    this.genreService.list().then(genres => this.genres = genres);
   }
 
 }
