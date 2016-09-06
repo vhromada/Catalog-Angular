@@ -2,6 +2,7 @@ import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {GenreListComponent} from "./genres/genre.list.component";
+import {GenreAddComponent} from "./genres/genre.add.component";
 
 const catalogRoutes: Routes = [
   {
@@ -21,6 +22,10 @@ const catalogRoutes: Routes = [
   {
     path: 'genres/list',
     component: GenreListComponent
+  },
+  {
+    path: 'genres/add',
+    component: GenreAddComponent
   }
 ];
 

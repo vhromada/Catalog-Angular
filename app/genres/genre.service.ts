@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
-import {CatalogService} from "../catalog.service";
 import {Http} from "@angular/http";
+import {CatalogService} from "../catalog.service";
 import {Genre} from "./genre";
 
 @Injectable()

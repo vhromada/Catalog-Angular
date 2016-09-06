@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {Router} from "@angular/router";
 import {Genre} from "./genre";
 import {GenreService} from "./genre.service";
 
@@ -10,7 +11,8 @@ export class GenreListComponent implements OnInit {
 
   genres: Genre[];
 
-  constructor(private genreService: GenreService) {
+  constructor(private genreService: GenreService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -22,9 +24,7 @@ export class GenreListComponent implements OnInit {
   }
 
   add(): void {
-    let genre = new Genre();
-    genre.name = 'Genre' + this.genres.length;
-    this.genreService.add(genre).then(() => this.updateGenres());
+    this.router.navigate(['/genres/add']);
   }
 
   update(genre: Genre): void {
