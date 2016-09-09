@@ -4,8 +4,8 @@ import {Genre} from "./genre";
 import {GenreService} from "./genre.service";
 
 @Component({
-  selector: 'genres',
-  templateUrl: 'genre.list.component.html'
+  selector: 'genre-list',
+  templateUrl: 'app/genres/genre.list.component.html'
 })
 export class GenreListComponent implements OnInit {
 
@@ -19,16 +19,8 @@ export class GenreListComponent implements OnInit {
     this.updateGenres();
   }
 
-  newData(): void {
-    this.genreService.new().then(() => this.updateGenres());
-  }
-
-  add(): void {
-    this.router.navigate(['/genres/add']);
-  }
-
   update(genre: Genre): void {
-    this.genreService.update(genre).then(() => this.updateGenres());
+    this.router.navigate(['/genres/edit', genre.id]);
   }
 
   duplicate(genre: Genre): void {
@@ -45,10 +37,6 @@ export class GenreListComponent implements OnInit {
 
   moveDown(genre: Genre): void {
     this.genreService.moveDown(genre).then(() => this.updateGenres());
-  }
-
-  updatePositions(): void {
-    this.genreService.updatePositions().then(() => this.updateGenres());
   }
 
   private updateGenres(): void {

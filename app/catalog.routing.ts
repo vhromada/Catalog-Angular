@@ -2,7 +2,8 @@ import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {GenreListComponent} from "./genres/genre.list.component";
-import {GenreAddComponent} from "./genres/genre.add.component";
+import {GenreSetComponent} from "./genres/genre.set.component";
+import {GenreUpdateComponent} from "./genres/genre.update.component";
 
 const catalogRoutes: Routes = [
   {
@@ -12,12 +13,7 @@ const catalogRoutes: Routes = [
   },
   {
     path: 'catalog',
-    component: HomeComponent
-  },
-  {
-    path: 'genres',
-    redirectTo: '/genres/list',
-    pathMatch: 'full'
+    component: HomeComponent,
   },
   {
     path: 'genres/list',
@@ -25,7 +21,15 @@ const catalogRoutes: Routes = [
   },
   {
     path: 'genres/add',
-    component: GenreAddComponent
+    component: GenreSetComponent
+  },
+  {
+    path: 'genres/edit/:id',
+    component: GenreSetComponent
+  },
+  {
+    path: 'genres/update',
+    component: GenreUpdateComponent
   }
 ];
 
