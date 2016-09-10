@@ -10,6 +10,7 @@ import {GenreService} from "./genre.service";
   templateUrl: 'app/genres/genre.set.component.html'
 })
 export class GenreSetComponent implements OnInit, OnDestroy {
+
   genreForm: FormGroup;
   formErrors = {
     'name': ''
