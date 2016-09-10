@@ -1,0 +1,55 @@
+<music-menu></music-menu>
+
+<div class="container-fluid">
+    <h2>{{title}}</h2>
+    <form method="POST" class="form-horizontal" [formGroup]="musicForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="name">Name</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="name" id="name" class="form-control" formControlName="name"/>
+                    <span class="error" *ngIf="formErrors.name">{{formErrors.name}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="wikiCz">Czech Wikipedia</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="wikiCz" id="wikiCz" class="form-control" formControlName="wikiCz"/>
+                    <span class="error" *ngIf="formErrors.wikiCz">{{formErrors.wikiCz}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="wikiEn">English Wikipedia</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="wikiEn" id="wikiEn" class="form-control" formControlName="wikiEn"/>
+                    <span class="error" *ngIf="formErrors.wikiEn">{{formErrors.wikiEn}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="mediaCount">Count of media</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="mediaCount" id="mediaCount" min="1" max="100" step="1" class="form-control" formControlName="mediaCount"/>
+                    <span class="error" *ngIf="formErrors.mediaCount">{{formErrors.mediaCount}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="note">Note</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="name" id="note" class="form-control" formControlName="note"/>
+                    <span class="error" *ngIf="formErrors.note">{{formErrors.note}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" name="create" class="btn btn-primary" [disabled]="!musicForm.valid">{{submitButtonValue}}</button>
+                    <button type="button" name="cancel" class="btn btn-danger" formnovalidate="formnovalidate" (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
