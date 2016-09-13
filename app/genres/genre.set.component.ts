@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
-import {Validator} from "../validator";
+import {Validator} from "../validations/validator";
 import {GenreService} from "./genre.service";
 
 @Component({

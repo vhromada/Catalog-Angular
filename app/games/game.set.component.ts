@@ -2,8 +2,9 @@ import {Component, OnInit, OnDestroy} from "@angular/core";
 import {Router, ActivatedRoute, Params} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
-import {Validator} from "../validator";
+import {Validator} from "../validations/validator";
 import {GameService} from "./game.service";
+import {rangeValidator} from "../validations/rangevalidator";
 
 @Component({
   selector: 'game-set',
@@ -21,7 +22,8 @@ export class GameSetComponent implements OnInit, OnDestroy {
       'required': 'Name must be filled.'
     },
     'mediaCount': {
-      'required': 'Count of media must be filled.'
+      'required': 'Count of media must be filled.',
+      'range': 'Count of media must be between 1 and 100.'
     }
   };
   edit: boolean;
@@ -41,7 +43,7 @@ export class GameSetComponent implements OnInit, OnDestroy {
       name: ['', [Validators.required]],
       wikiCz: [],
       wikiEn: [],
-      mediaCount: ['', [Validators.required]],
+      mediaCount: ['', [Validators.required, rangeValidator(1, 100)]],
       crack: [],
       serialKey: [],
       patch: [],
