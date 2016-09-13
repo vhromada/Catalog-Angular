@@ -94,11 +94,15 @@ export class GameSetComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.updateValues();
-    if (this.edit) {
-      this.gameService.update(this.gameForm.value).then(() => this.router.navigate(['/games/list']));
+    if (this.gameForm.valid) {
+      this.updateValues();
+      if (this.edit) {
+        this.gameService.update(this.gameForm.value).then(() => this.router.navigate(['/games/list']));
+      } else {
+        this.gameService.add(this.gameForm.value).then(() => this.router.navigate(['/games/list']));
+      }
     } else {
-      this.gameService.add(this.gameForm.value).then(() => this.router.navigate(['/games/list']));
+      Validator.validate(this.gameForm, this.formErrors, this.validationMessages, true);
     }
   }
 
@@ -111,7 +115,7 @@ export class GameSetComponent implements OnInit, OnDestroy {
       return;
     }
 
-    Validator.validate(this.gameForm, this.formErrors, this.validationMessages);
+    Validator.validate(this.gameForm, this.formErrors, this.validationMessages, false);
   }
 
   updateValues() {

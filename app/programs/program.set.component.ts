@@ -89,11 +89,15 @@ export class ProgramSetComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.updateValues();
-    if (this.edit) {
-      this.programService.update(this.programForm.value).then(() => this.router.navigate(['/programs/list']));
+    if (this.programForm.valid) {
+      this.updateValues();
+      if (this.edit) {
+        this.programService.update(this.programForm.value).then(() => this.router.navigate(['/programs/list']));
+      } else {
+        this.programService.add(this.programForm.value).then(() => this.router.navigate(['/programs/list']));
+      }
     } else {
-      this.programService.add(this.programForm.value).then(() => this.router.navigate(['/programs/list']));
+      Validator.validate(this.programForm, this.formErrors, this.validationMessages, true);
     }
   }
 
@@ -106,7 +110,7 @@ export class ProgramSetComponent implements OnInit, OnDestroy {
       return;
     }
 
-    Validator.validate(this.programForm, this.formErrors, this.validationMessages);
+    Validator.validate(this.programForm, this.formErrors, this.validationMessages, false);
   }
 
   updateValues() {

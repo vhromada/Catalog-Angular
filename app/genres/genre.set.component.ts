@@ -66,10 +66,14 @@ export class GenreSetComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    if (this.edit) {
-      this.genreService.update(this.genreForm.value).then(() => this.router.navigate(['/genres/list']));
+    if (this.genreForm.valid) {
+      if (this.edit) {
+        this.genreService.update(this.genreForm.value).then(() => this.router.navigate(['/genres/list']));
+      } else {
+        this.genreService.add(this.genreForm.value).then(() => this.router.navigate(['/genres/list']));
+      }
     } else {
-      this.genreService.add(this.genreForm.value).then(() => this.router.navigate(['/genres/list']));
+      Validator.validate(this.genreForm, this.formErrors, this.validationMessages, true);
     }
   }
 
@@ -82,7 +86,7 @@ export class GenreSetComponent implements OnInit, OnDestroy {
       return;
     }
 
-    Validator.validate(this.genreForm, this.formErrors, this.validationMessages);
+    Validator.validate(this.genreForm, this.formErrors, this.validationMessages, false);
   }
 
 }

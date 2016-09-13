@@ -26,6 +26,7 @@ import {GenreUpdateComponent} from "./genres/genre.update.component";
 import {TimeService} from "./time.service";
 import {GameService} from "./games/game.service";
 import {MusicService} from "./music/music.service";
+import {SongService} from "./songs/song.service";
 import {ProgramService} from "./programs/program.service";
 import {GenreService} from "./genres/genre.service";
 
@@ -62,6 +63,7 @@ import {GenreService} from "./genres/genre.service";
     TimeService,
     GameService,
     MusicService,
+    SongService,
     ProgramService,
     GenreService
   ],

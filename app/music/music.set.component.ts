@@ -78,11 +78,15 @@ export class MusicSetComponent implements OnInit, OnDestroy {
   }
 
   onSubmit() {
-    this.updateValues();
-    if (this.edit) {
-      this.musicService.update(this.musicForm.value).then(() => this.router.navigate(['/music/list']));
+    if (this.musicForm.valid) {
+      this.updateValues();
+      if (this.edit) {
+        this.musicService.update(this.musicForm.value).then(() => this.router.navigate(['/music/list']));
+      } else {
+        this.musicService.add(this.musicForm.value).then(() => this.router.navigate(['/music/list']));
+      }
     } else {
-      this.musicService.add(this.musicForm.value).then(() => this.router.navigate(['/music/list']));
+      Validator.validate(this.musicForm, this.formErrors, this.validationMessages, true);
     }
   }
 
@@ -95,7 +99,7 @@ export class MusicSetComponent implements OnInit, OnDestroy {
       return;
     }
 
-    Validator.validate(this.musicForm, this.formErrors, this.validationMessages);
+    Validator.validate(this.musicForm, this.formErrors, this.validationMessages, false);
   }
 
   updateValues() {
