@@ -2,6 +2,8 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {Music} from "./music";
 import {MusicService} from "./music.service";
+import {SongService} from "../songs/song.service";
+import {TimeService} from "../time.service";
 
 @Component({
   selector: 'music-list',
@@ -11,10 +13,12 @@ export class MusicListComponent implements OnInit {
 
   music: Music[];
   mediaCount: number;
-  totalLength: number;
+  totalLength: string;
   songsCount: number;
 
   constructor(private musicService: MusicService,
+              private songService: SongService,
+              private timeService: TimeService,
               private router: Router) {
   }
 
@@ -43,7 +47,18 @@ export class MusicListComponent implements OnInit {
   }
 
   private updateData(): void {
-    this.musicService.list().then(music => this.music = music);
+    this.musicService.list().then(music => {
+      music.forEach(item => {
+        this.songService.musicId = item.id;
+        this.songService.list().then(songs => {
+          item.songsCount = songs.length;
+          let totalLength = 0;
+          songs.forEach(song => totalLength += song.length);
+          this.timeService.time(totalLength).then(time => item.totalLength = time);
+        })
+      });
+      this.music = music;
+    });
     this.musicService.totalMedia().then(mediaCount => this.mediaCount = mediaCount);
     this.musicService.totalLength().then(totalLength => this.totalLength = totalLength);
     this.musicService.songsCount().then(songsCount => this.songsCount = songsCount);

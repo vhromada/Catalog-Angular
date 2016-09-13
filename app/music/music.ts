@@ -7,5 +7,7 @@ export class Music {
   mediaCount: number;
   note: string;
   position: number;
+  songsCount: number;
+  totalLength: string;
 
 }

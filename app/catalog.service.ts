@@ -15,7 +15,7 @@ export class CatalogService<T> {
   }
 
   list(): Promise<T[]> {
-    return this.get();
+    return this.get('list');
   }
 
   item(id: number): Promise<T> {
@@ -50,23 +50,25 @@ export class CatalogService<T> {
     return this.post('updatePositions')
   }
 
-  get(...urlParts: string[]): Promise<any> {
-    return this.http.get(this.getUrl(urlParts)).toPromise().then(response => response.json());
+  get(urlPart: string): Promise<any> {
+    return this.http.get(this.getUrl(urlPart)).toPromise().then(response => response.json());
   }
 
-  postData(data: any, ...urlParts: string[]): Promise<void> {
-    return this.http.post(this.getUrl(urlParts), JSON.stringify(data), {headers: this.headers}).toPromise().then(() => null);
+  postData(data: any, urlPart: string): Promise<void> {
+    return this.http.post(this.getUrl(urlPart), JSON.stringify(data), {headers: this.headers}).toPromise().then(() => null);
   }
 
-  post(...urlParts: string[]): Promise<void> {
-    return this.http.post(this.getUrl(urlParts), {headers: this.headers}).toPromise().then(() => null);
+  post(urlPart: string): Promise<void> {
+    return this.http.post(this.getUrl(urlPart), {headers: this.headers}).toPromise().then(() => null);
   }
 
-  private getUrl(urlParts: string[]) {
-    let url = this.catalogUrl + '/' + this.baseUrl;
-    urlParts.forEach(urlPart => {
-      url += '/' + urlPart;
-    });
+  getParams(): Map<string, string> {
+    return new Map<string, string>();
+  }
+
+  private getUrl(urlPart: string) {
+    let url = this.catalogUrl + '/' + this.baseUrl + '/' + urlPart;
+    this.getParams().forEach((value, key) => url = url.replace('{' + key + '}', value));
 
     return url;
   }

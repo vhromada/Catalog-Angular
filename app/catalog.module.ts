@@ -4,7 +4,6 @@ import {HttpModule} from "@angular/http";
 import {ReactiveFormsModule} from "@angular/forms";
 import {routing} from "./catalog.routing";
 import {CatalogComponent} from "./catalog.component";
-import {TimeComponent} from "./common/time.component";
 import {HomeComponent} from "./home/home.component";
 import {GameMenuComponent} from "./games/game.menu.component";
 import {GameAdditionalDataComponent} from "./games/game.additionaldata.component";
@@ -24,7 +23,7 @@ import {GenreMenuComponent} from "./genres/genre.menu.component";
 import {GenreListComponent} from "./genres/genre.list.component";
 import {GenreSetComponent} from "./genres/genre.set.component";
 import {GenreUpdateComponent} from "./genres/genre.update.component";
-import {TimeService} from "./common/time.service";
+import {TimeService} from "./time.service";
 import {GameService} from "./games/game.service";
 import {MusicService} from "./music/music.service";
 import {ProgramService} from "./programs/program.service";
@@ -39,7 +38,6 @@ import {GenreService} from "./genres/genre.service";
   ],
   declarations: [
     CatalogComponent,
-    TimeComponent,
     HomeComponent,
     GameMenuComponent,
     GameAdditionalDataComponent,

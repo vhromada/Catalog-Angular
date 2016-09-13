@@ -23,8 +23,8 @@
         <tr *ngFor="let musicItem of music; let i = index">
             <td>{{musicItem.name}}</td>
             <td>{{musicItem.mediaCount}}</td>
-            <td>[TODO 0]</td>
-            <td>[TODO 0]</td>
+            <td>{{musicItem.songsCount}}</td>
+            <td>{{musicItem.totalLength}}</td>
             <td>{{musicItem.note}}</td>
             <td>
                 <a *ngIf="musicItem.wikiCz" href="http://cz.wikipedia.org/wiki/{{musicItem.wikiCz}}" target="_blank">Czech Wikipedia</a>
@@ -58,9 +58,8 @@
             <td *ngIf="!mediaCount">0</td>
             <td *ngIf="songsCount">{{songsCount}}</td>
             <td *ngIf="!songsCount">0</td>
-            <td>
-                <catalog-time [time]="totalLength"></catalog-time>
-            </td>
+            <td *ngIf="totalLength">{{totalLength}}</td>
+            <td *ngIf="!totalLength">0:00:00</td>
         </tr>
         </tbody>
     </table>
