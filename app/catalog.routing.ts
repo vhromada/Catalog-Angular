@@ -1,6 +1,9 @@
 import {ModuleWithProviders} from "@angular/core";
 import {Routes, RouterModule} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
+import {MovieListComponent} from "./movies/movie.list.component";
+import {MovieSetComponent} from "./movies/movie.set.component";
+import {MovieUpdateComponent} from "./movies/movie.update.component";
 import {GameListComponent} from "./games/game.list.component";
 import {GameSetComponent} from "./games/game.set.component";
 import {GameUpdateComponent} from "./games/game.update.component";
@@ -23,6 +26,22 @@ const catalogRoutes: Routes = [
   {
     path: 'catalog',
     component: HomeComponent,
+  },
+  {
+    path: 'movies/list',
+    component: MovieListComponent
+  },
+  {
+    path: 'movies/add',
+    component: MovieSetComponent
+  },
+  {
+    path: 'movies/edit/:id',
+    component: MovieSetComponent
+  },
+  {
+    path: 'movies/update',
+    component: MovieUpdateComponent
   },
   {
     path: 'games/list',

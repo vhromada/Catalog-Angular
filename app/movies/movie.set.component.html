@@ -1,0 +1,169 @@
+<movie-menu></movie-menu>
+
+<div class="container-fluid">
+    <h2>{{title}}</h2>
+    <form method="POST" class="form-horizontal" [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="czechName">Czech name</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="czechName" id="czechName" class="form-control" formControlName="czechName"/>
+                    <span class="error" *ngIf="formErrors.czechName">{{formErrors.czechName}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="originalName">Original name</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="originalName" id="originalName" class="form-control" formControlName="originalName"/>
+                    <span class="error" *ngIf="formErrors.originalName">{{formErrors.originalName}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="year">Year</label>
+
+                <div class="col-sm-10">
+                    <input type="number" name="year" id="year" min="1930" max="2500" step="1" class="form-control" formControlName="year"/>
+                    <span class="error" *ngIf="formErrors.year">{{formErrors.year}}</span>
+                </div>
+            </div>
+            <!--TODO vladimir.hromada : language-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label">Language</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<label class="radio custom" *ngFor="let language of languages">-->
+            <!--<input type="radio" name="language" (click)="updateLanguage(language)"/>-->
+            <!--{{language}}-->
+            <!--</label>-->
+            <!--<span class="error" *ngIf="formErrors.language">{{formErrors.language}}</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--TODO vladimir.hromada : subtitles-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label">Subtitles</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<label class="checkbox custom" *ngFor="let subtitlesItem of subtitles">-->
+            <!--<input type="checkbox" name="subtitles" (click)="updateSubtitles(subtitles)"/>-->
+            <!--{{subtitlesItem}}-->
+            <!--</label>-->
+            <!--<span class="error" *ngIf="formErrors.subtitles">{{formErrors.subtitles}}</span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--TODO vladimir.hromada : media-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label">Media</label>-->
+            <!--</div>-->
+            <!--<c:forEach begin="0" end="${movie.media.size() - 1}" var="i">-->
+            <!--<c:set var="number" scope="request" value="${i + 1}"/>-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label">Medium ${number}</label>-->
+            <!--<c:if test="${i > 0}">-->
+            <!--<form:button type="submit" name="remove${i}" class="btn btn-danger col-sm-1" formnovalidate="formnovalidate">Remove</form:button>-->
+            <!--</c:if>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label" for="medium${number}Hours">Medium ${number} hours</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<form:input type="number" name="medium${number}Hours" id="medium${number}Hours" path="media[${i}].hours" min="0" max="23" step="1"-->
+            <!--cssClass="form-control"/>-->
+            <!--<span class="error"><form:errors path="media[${i}].hours"/></span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label" for="medium${number}Minutes">Medium ${number} minutes</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<form:input type="number" name="medium${number}Minutes" id="medium${number}Minutes" path="media[${i}].minutes" min="0" max="59" step="1"-->
+            <!--cssClass="form-control"/>-->
+            <!--<span class="error"><form:errors path="media[${i}].minutes"/></span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label" for="medium${number}Seconds">Medium ${number} seconds</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<form:input type="number" name="medium${number}Seconds" id="medium${number}Seconds" path="media[${i}].seconds" min="0" max="59" step="1"-->
+            <!--cssClass="form-control"/>-->
+            <!--<span class="error"><form:errors path="media[${i}].seconds"/></span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</c:forEach>-->
+            <!--<div class="form-group">-->
+            <!--<form:button type="submit" name="add" class="btn btn-success col-sm-offset-2 col-sm-1" formnovalidate="formnovalidate">Add</form:button>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="csfd">ČSFD</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="csfd" id="csfd" class="form-control" formControlName="csfd"/>
+                    <span class="error" *ngIf="formErrors.csfd">{{formErrors.csfd}}</span>
+                </div>
+            </div>
+            <!--TODO vladimir.hromada : IMDB-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label" for="imdb">IMDB</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<form:checkbox name="imdb" id="imdb" path="imdb" onclick="imdbShow();"/>-->
+            <!--<div id="imdbPanel">-->
+            <!--<form:input type="number" name="imdbCode" id="imdbCode" path="imdbCode" min="1" max="9999999" step="1" cssClass="form-control"/>-->
+            <!--<span class="help-inline error"><form:errors path=""/></span>-->
+            <!--<span class="help-inline error"><form:errors path="imdb"/></span>-->
+            <!--<span class="help-inline error"><form:errors path="imdbCode"/></span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="wikiCz">Czech Wikipedia</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="wikiCz" id="wikiCz" class="form-control" formControlName="wikiCz"/>
+                    <span class="error" *ngIf="formErrors.wikiCz">{{formErrors.wikiCz}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="wikiEn">English Wikipedia</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="wikiEn" id="wikiEn" class="form-control" formControlName="wikiEn"/>
+                    <span class="error" *ngIf="formErrors.wikiEn">{{formErrors.wikiEn}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="picture">Picture</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="picture" id="picture" class="form-control" formControlName="picture"/>
+                    <span class="error" *ngIf="formErrors.picture">{{formErrors.picture}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="note">Note</label>
+
+                <div class="col-sm-10">
+                    <input type="text" name="name" id="note" class="form-control" formControlName="note"/>
+                    <span class="error" *ngIf="formErrors.note">{{formErrors.note}}</span>
+                </div>
+            </div>
+            <!--TODO vladimir.hromada : genres-->
+            <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label" for="genres">Genres</label>-->
+
+            <!--<div class="col-sm-10">-->
+            <!--<form:select multiple="true" name="genres" id="genres" path="genres" items="${genres}" itemValue="id" itemLabel="name" cssClass="form-control"/>-->
+            <!--<span class="error"><form:errors path="genres"/></span>-->
+            <!--</div>-->
+            <!--</div>-->
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" name="create" class="btn btn-primary">{{submitButtonValue}}</button>
+                    <button type="button" name="cancel" class="btn btn-danger" formnovalidate="formnovalidate" (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
