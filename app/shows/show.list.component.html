@@ -1,0 +1,82 @@
+<show-menu></show-menu>
+
+<div class="container-fluid">
+    <h2>Shows</h2>
+    <table class="table table-hover" *ngIf="shows && shows.length > 0">
+        <thead>
+        <tr>
+            <th>Czech name</th>
+            <th>Original name</th>
+            <th>Genres</th>
+            <th>Count of seasons</th>
+            <th>Count of episodes</th>
+            <th>Total length</th>
+            <th>Picture</th>
+            <th>Note</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let show of shows; let i = index">
+            <td>{{show.czechName}}</td>
+            <td>{{show.originalName}}</td>
+            <td>
+                <show-genres [show]="show"></show-genres>
+            </td>
+            <td>{{show.seasonsCount}}</td>
+            <td>{{show.episodesCount}}</td>
+            <td>{{show.totalLength}}</td>
+            <td>{{show.picture}}</td>
+            <td>{{show.note}}</td>
+            <td>
+                <a *ngIf="show.csfd" href="http://www.csfd.cz/film/{{show.csfd}}" target="_blank">ČSFD</a>
+            </td>
+            <td>
+                <a *ngIf="show.imdbCode > 0" href="http://www.imdb.com/title/tt{{show.imdbCode}}" target="_blank">IMDB</a>
+            </td>
+            <td>
+                <a *ngIf="show.wikiCz" href="http://cz.wikipedia.org/wiki/{{show.wikiCz}}" target="_blank">Czech Wikipedia</a>
+            </td>
+            <td>
+                <a *ngIf="show.wikiEn" href="http://en.wikipedia.org/wiki/{{show.wikiEn}}" target="_blank">English Wikipedia</a>
+            </td>
+            <td><a (click)="moveUp(show)" *ngIf="i > 0">Move up</a></td>
+            <td><a (click)="moveDown(show)" *ngIf="i < shows.length - 1">Move down</a></td>
+            <td><a (click)="duplicate(show)">Duplicate</a></td>
+            <td><a (click)="update(show)">Edit</a></td>
+            <td><a (click)="remove(show)">Remove</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!shows || shows.length == 0">No records.</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Count of shows</th>
+            <th>Count of seasons</th>
+            <th>Count of episodes</th>
+            <th>Total length</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td *ngIf="shows">{{shows.length}}</td>
+            <td *ngIf="!shows">0</td>
+            <td *ngIf="seasonsCount">{{seasonsCount}}</td>
+            <td *ngIf="!seasonsCount">0</td>
+            <td *ngIf="episodesCount">{{episodesCount}}</td>
+            <td *ngIf="!episodesCount">0</td>
+            <td *ngIf="totalLength">{{totalLength}}</td>
+            <td *ngIf="!totalLength">0:00:00</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

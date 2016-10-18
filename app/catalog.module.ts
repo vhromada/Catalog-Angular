@@ -12,6 +12,11 @@ import {MovieLengthComponent} from "./movies/movie.length.component";
 import {MovieListComponent} from "./movies/movie.list.component";
 import {MovieSetComponent} from "./movies/movie.set.component";
 import {MovieUpdateComponent} from "./movies/movie.update.component";
+import {ShowMenuComponent} from "./shows/show.menu.component";
+import {ShowGenresComponent} from "./shows/show.genres.component";
+import {ShowListComponent} from "./shows/show.list.component";
+import {ShowSetComponent} from "./shows/show.set.component";
+import {ShowUpdateComponent} from "./shows/show.update.component";
 import {GameMenuComponent} from "./games/game.menu.component";
 import {GameAdditionalDataComponent} from "./games/game.additionaldata.component";
 import {GameListComponent} from "./games/game.list.component";
@@ -33,6 +38,9 @@ import {GenreUpdateComponent} from "./genres/genre.update.component";
 import {TimeService} from "./time.service";
 import {LanguageService} from "./language.service";
 import {MovieService} from "./movies/movie.service";
+import {ShowService} from "./shows/show.service";
+import {SeasonService} from "./seasons/season.service";
+import {EpisodeService} from "./episodes/episode.service";
 import {GameService} from "./games/game.service";
 import {MusicService} from "./music/music.service";
 import {SongService} from "./songs/song.service";
@@ -56,6 +64,11 @@ import {GenreService} from "./genres/genre.service";
     MovieListComponent,
     MovieSetComponent,
     MovieUpdateComponent,
+    ShowMenuComponent,
+    ShowGenresComponent,
+    ShowListComponent,
+    ShowSetComponent,
+    ShowUpdateComponent,
     GameMenuComponent,
     GameAdditionalDataComponent,
     GameListComponent,
@@ -79,6 +92,9 @@ import {GenreService} from "./genres/genre.service";
     TimeService,
     LanguageService,
     MovieService,
+    ShowService,
+    SeasonService,
+    EpisodeService,
     GameService,
     MusicService,
     SongService,

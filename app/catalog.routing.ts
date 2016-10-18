@@ -4,6 +4,9 @@ import {HomeComponent} from "./home/home.component";
 import {MovieListComponent} from "./movies/movie.list.component";
 import {MovieSetComponent} from "./movies/movie.set.component";
 import {MovieUpdateComponent} from "./movies/movie.update.component";
+import {ShowListComponent} from "./shows/show.list.component";
+import {ShowSetComponent} from "./shows/show.set.component";
+import {ShowUpdateComponent} from "./shows/show.update.component";
 import {GameListComponent} from "./games/game.list.component";
 import {GameSetComponent} from "./games/game.set.component";
 import {GameUpdateComponent} from "./games/game.update.component";
@@ -42,6 +45,22 @@ const catalogRoutes: Routes = [
   {
     path: 'movies/update',
     component: MovieUpdateComponent
+  },
+  {
+    path: 'shows/list',
+    component: ShowListComponent
+  },
+  {
+    path: 'shows/add',
+    component: ShowSetComponent
+  },
+  {
+    path: 'shows/edit/:id',
+    component: ShowSetComponent
+  },
+  {
+    path: 'shows/update',
+    component: ShowUpdateComponent
   },
   {
     path: 'games/list',
