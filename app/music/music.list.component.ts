@@ -60,7 +60,9 @@ export class MusicListComponent implements OnInit {
       this.music = music;
     });
     this.musicService.totalMedia().then(mediaCount => this.mediaCount = mediaCount);
-    this.musicService.totalLength().then(totalLength => this.totalLength = totalLength);
+    this.musicService.totalLength().then(totalLength => {
+      this.timeService.time(totalLength).then(time => this.totalLength = time);
+    });
     this.musicService.songsCount().then(songsCount => this.songsCount = songsCount);
   }
 
