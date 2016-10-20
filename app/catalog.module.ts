@@ -11,30 +11,30 @@ import {MovieSubtitlesComponent} from "./movies/movie.subtitles.component";
 import {MovieLengthComponent} from "./movies/movie.length.component";
 import {MovieListComponent} from "./movies/movie.list.component";
 import {MovieSetComponent} from "./movies/movie.set.component";
-import {MovieUpdateComponent} from "./movies/movie.update.component";
+import {MovieNavigationComponent} from "./movies/movie.navigation.component";
 import {ShowMenuComponent} from "./shows/show.menu.component";
 import {ShowGenresComponent} from "./shows/show.genres.component";
 import {ShowListComponent} from "./shows/show.list.component";
 import {ShowSetComponent} from "./shows/show.set.component";
-import {ShowUpdateComponent} from "./shows/show.update.component";
+import {ShowNavigationComponent} from "./shows/show.navigation.component";
 import {GameMenuComponent} from "./games/game.menu.component";
 import {GameAdditionalDataComponent} from "./games/game.additionaldata.component";
 import {GameListComponent} from "./games/game.list.component";
 import {GameSetComponent} from "./games/game.set.component";
-import {GameUpdateComponent} from "./games/game.update.component";
+import {GameNavigationComponent} from "./games/game.navigation.component";
 import {MusicMenuComponent} from "./music/music.menu.component";
 import {MusicListComponent} from "./music/music.list.component";
 import {MusicSetComponent} from "./music/music.set.component";
-import {MusicUpdateComponent} from "./music/music.update.component";
+import {MusicNavigationComponent} from "./music/music.navigation.component";
 import {ProgramMenuComponent} from "./programs/program.menu.component";
 import {ProgramAdditionalDataComponent} from "./programs/program.additionaldata.component";
 import {ProgramListComponent} from "./programs/program.list.component";
 import {ProgramSetComponent} from "./programs/program.set.component";
-import {ProgramUpdateComponent} from "./programs/program.update.component";
+import {ProgramNavigationComponent} from "./programs/program.navigation.component";
 import {GenreMenuComponent} from "./genres/genre.menu.component";
 import {GenreListComponent} from "./genres/genre.list.component";
 import {GenreSetComponent} from "./genres/genre.set.component";
-import {GenreUpdateComponent} from "./genres/genre.update.component";
+import {GenreNavigationComponent} from "./genres/genre.navigation.component";
 import {TimeService} from "./time.service";
 import {LanguageService} from "./language.service";
 import {MovieService} from "./movies/movie.service";
@@ -63,30 +63,30 @@ import {GenreService} from "./genres/genre.service";
     MovieLengthComponent,
     MovieListComponent,
     MovieSetComponent,
-    MovieUpdateComponent,
+    MovieNavigationComponent,
     ShowMenuComponent,
     ShowGenresComponent,
     ShowListComponent,
     ShowSetComponent,
-    ShowUpdateComponent,
+    ShowNavigationComponent,
     GameMenuComponent,
     GameAdditionalDataComponent,
     GameListComponent,
     GameSetComponent,
-    GameUpdateComponent,
+    GameNavigationComponent,
     MusicMenuComponent,
     MusicListComponent,
     MusicSetComponent,
-    MusicUpdateComponent,
+    MusicNavigationComponent,
     ProgramMenuComponent,
     ProgramAdditionalDataComponent,
     ProgramListComponent,
     ProgramSetComponent,
-    ProgramUpdateComponent,
+    ProgramNavigationComponent,
     GenreMenuComponent,
     GenreListComponent,
     GenreSetComponent,
-    GenreUpdateComponent
+    GenreNavigationComponent
   ],
   providers: [
     TimeService,

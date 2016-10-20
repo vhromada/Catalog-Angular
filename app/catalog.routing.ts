@@ -3,22 +3,22 @@ import {Routes, RouterModule} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {MovieListComponent} from "./movies/movie.list.component";
 import {MovieSetComponent} from "./movies/movie.set.component";
-import {MovieUpdateComponent} from "./movies/movie.update.component";
+import {MovieNavigationComponent} from "./movies/movie.navigation.component";
 import {ShowListComponent} from "./shows/show.list.component";
 import {ShowSetComponent} from "./shows/show.set.component";
-import {ShowUpdateComponent} from "./shows/show.update.component";
+import {ShowNavigationComponent} from "./shows/show.navigation.component";
 import {GameListComponent} from "./games/game.list.component";
 import {GameSetComponent} from "./games/game.set.component";
-import {GameUpdateComponent} from "./games/game.update.component";
+import {GameNavigationComponent} from "./games/game.navigation.component";
 import {MusicListComponent} from "./music/music.list.component";
 import {MusicSetComponent} from "./music/music.set.component";
-import {MusicUpdateComponent} from "./music/music.update.component";
+import {MusicNavigationComponent} from "./music/music.navigation.component";
 import {ProgramListComponent} from "./programs/program.list.component";
 import {ProgramSetComponent} from "./programs/program.set.component";
-import {ProgramUpdateComponent} from "./programs/program.update.component";
+import {ProgramNavigationComponent} from "./programs/program.navigation.component";
 import {GenreListComponent} from "./genres/genre.list.component";
 import {GenreSetComponent} from "./genres/genre.set.component";
-import {GenreUpdateComponent} from "./genres/genre.update.component";
+import {GenreNavigationComponent} from "./genres/genre.navigation.component";
 
 const catalogRoutes: Routes = [
   {
@@ -43,8 +43,8 @@ const catalogRoutes: Routes = [
     component: MovieSetComponent
   },
   {
-    path: 'movies/update',
-    component: MovieUpdateComponent
+    path: 'movies/:action',
+    component: MovieNavigationComponent
   },
   {
     path: 'shows/list',
@@ -59,8 +59,8 @@ const catalogRoutes: Routes = [
     component: ShowSetComponent
   },
   {
-    path: 'shows/update',
-    component: ShowUpdateComponent
+    path: 'shows/:action',
+    component: ShowNavigationComponent
   },
   {
     path: 'games/list',
@@ -75,8 +75,8 @@ const catalogRoutes: Routes = [
     component: GameSetComponent
   },
   {
-    path: 'games/update',
-    component: GameUpdateComponent
+    path: 'games/:action',
+    component: GameNavigationComponent
   },
   {
     path: 'music/list',
@@ -91,8 +91,8 @@ const catalogRoutes: Routes = [
     component: MusicSetComponent
   },
   {
-    path: 'music/update',
-    component: MusicUpdateComponent
+    path: 'music/:action',
+    component: MusicNavigationComponent
   },
   {
     path: 'programs/list',
@@ -107,8 +107,8 @@ const catalogRoutes: Routes = [
     component: ProgramSetComponent
   },
   {
-    path: 'programs/update',
-    component: ProgramUpdateComponent
+    path: 'programs/:action',
+    component: ProgramNavigationComponent
   },
   {
     path: 'genres/list',
@@ -123,8 +123,8 @@ const catalogRoutes: Routes = [
     component: GenreSetComponent
   },
   {
-    path: 'genres/update',
-    component: GenreUpdateComponent
+    path: 'genres/:action',
+    component: GenreNavigationComponent
   }
 ];
 
