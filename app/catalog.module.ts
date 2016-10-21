@@ -26,6 +26,10 @@ import {MusicMenuComponent} from "./music/music.menu.component";
 import {MusicListComponent} from "./music/music.list.component";
 import {MusicSetComponent} from "./music/music.set.component";
 import {MusicNavigationComponent} from "./music/music.navigation.component";
+import {SongLengthComponent} from "./songs/song.length.component";
+import {SongMenuComponent} from "./songs/song.menu.component";
+import {SongListComponent} from "./songs/song.list.component";
+import {SongSetComponent} from "./songs/song.set.component";
 import {ProgramMenuComponent} from "./programs/program.menu.component";
 import {ProgramAdditionalDataComponent} from "./programs/program.additionaldata.component";
 import {ProgramListComponent} from "./programs/program.list.component";
@@ -78,6 +82,10 @@ import {GenreService} from "./genres/genre.service";
     MusicListComponent,
     MusicSetComponent,
     MusicNavigationComponent,
+    SongLengthComponent,
+    SongMenuComponent,
+    SongListComponent,
+    SongSetComponent,
     ProgramMenuComponent,
     ProgramAdditionalDataComponent,
     ProgramListComponent,

@@ -13,6 +13,8 @@ import {GameNavigationComponent} from "./games/game.navigation.component";
 import {MusicListComponent} from "./music/music.list.component";
 import {MusicSetComponent} from "./music/music.set.component";
 import {MusicNavigationComponent} from "./music/music.navigation.component";
+import {SongListComponent} from "./songs/song.list.component";
+import {SongSetComponent} from "./songs/song.set.component";
 import {ProgramListComponent} from "./programs/program.list.component";
 import {ProgramSetComponent} from "./programs/program.set.component";
 import {ProgramNavigationComponent} from "./programs/program.navigation.component";
@@ -93,6 +95,18 @@ const catalogRoutes: Routes = [
   {
     path: 'music/:action',
     component: MusicNavigationComponent
+  },
+  {
+    path: 'music/:musicId/songs/list',
+    component: SongListComponent
+  },
+  {
+    path: 'music/:musicId/songs/add',
+    component: SongSetComponent
+  },
+  {
+    path: 'music/:musicId/songs/edit/:songId',
+    component: SongSetComponent
   },
   {
     path: 'programs/list',

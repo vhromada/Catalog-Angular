@@ -17,6 +17,7 @@
             <th></th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -32,6 +33,7 @@
             <td>
                 <a *ngIf="musicItem.wikiEn" href="http://cz.wikipedia.org/wiki/{{musicItem.wikiEn}}" target="_blank">English Wikipedia</a>
             </td>
+            <td><a routerLink="/music/{{musicItem.id}}/songs/list">Songs</a></td>
             <td><a (click)="moveUp(musicItem)" *ngIf="i > 0">Move up</a></td>
             <td><a (click)="moveDown(musicItem)" *ngIf="i < music.length - 1">Move down</a></td>
             <td><a (click)="duplicate(musicItem)">Duplicate</a></td>
