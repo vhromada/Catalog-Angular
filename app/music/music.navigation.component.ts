@@ -17,9 +17,6 @@ export class MusicNavigationComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let action = params['action'];
       switch (action) {
-        case 'create':
-          this.router.navigate(['/music/add']);
-          break;
         case 'new':
           this.musicService.new().then(() => this.router.navigate(['/music/list']));
           break;

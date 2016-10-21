@@ -17,9 +17,6 @@ export class GenreNavigationComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let action = params['action'];
       switch (action) {
-        case 'create':
-          this.router.navigate(['/genres/add']);
-          break;
         case 'new':
           this.genreService.new().then(() => this.router.navigate(['/genres/list']));
           break;

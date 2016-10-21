@@ -17,9 +17,6 @@ export class MovieNavigationComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let action = params['action'];
       switch (action) {
-        case 'create':
-          this.router.navigate(['/movies/add']);
-          break;
         case 'new':
           this.movieService.new().then(() => this.router.navigate(['/movies/list']));
           break;

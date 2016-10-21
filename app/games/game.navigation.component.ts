@@ -17,9 +17,6 @@ export class GameNavigationComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let action = params['action'];
       switch (action) {
-        case 'create':
-          this.router.navigate(['/games/add']);
-          break;
         case 'new':
           this.gameService.new().then(() => this.router.navigate(['/games/list']));
           break;

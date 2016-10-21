@@ -17,9 +17,6 @@ export class ProgramNavigationComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let action = params['action'];
       switch (action) {
-        case 'create':
-          this.router.navigate(['/programs/add']);
-          break;
         case 'new':
           this.programService.new().then(() => this.router.navigate(['/programs/list']));
           break;

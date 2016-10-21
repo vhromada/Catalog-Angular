@@ -17,9 +17,6 @@ export class ShowNavigationComponent implements OnInit {
     this.route.params.forEach((params: Params) => {
       let action = params['action'];
       switch (action) {
-        case 'create':
-          this.router.navigate(['/shows/add']);
-          break;
         case 'new':
           this.showService.new().then(() => this.router.navigate(['/shows/list']));
           break;
