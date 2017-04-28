@@ -4,38 +4,38 @@
     <h2>Genres</h2>
     <table class="table table-hover" *ngIf="genres && genres.length > 0">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let genre of genres; let i = index">
-            <td>{{genre.name}}</td>
-            <td><a (click)="moveUp(genre)" *ngIf="i > 0">Move up</a></td>
-            <td><a (click)="moveDown(genre)" *ngIf="i < genres.length - 1">Move down</a></td>
-            <td><a (click)="duplicate(genre)">Duplicate</a></td>
-            <td><a (click)="update(genre)">Edit</a></td>
-            <td><a (click)="remove(genre)">Remove</a></td>
-        </tr>
+            <tr *ngFor="let genre of genres; let i = index">
+                <td>{{genre.name}}</td>
+                <td><a class="link" (click)="moveUp(genre)" *ngIf="i > 0">Move up</a></td>
+                <td><a class="link" (click)="moveDown(genre)" *ngIf="i < genres.length - 1">Move down</a></td>
+                <td><a class="link" (click)="duplicate(genre)">Duplicate</a></td>
+                <td><a class="link" (click)="update(genre)">Edit</a></td>
+                <td><a class="link" (click)="remove(genre)">Remove</a></td>
+            </tr>
         </tbody>
     </table>
     <div *ngIf="!genres || genres.length == 0">No records.</div>
     <table class="table">
         <thead>
-        <tr>
-            <th>Count of genres</th>
-        </tr>
+            <tr>
+                <th>Count of genres</th>
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td *ngIf="genres">{{genres.length}}</td>
-            <td *ngIf="!genres">0</td>
-        </tr>
+            <tr>
+                <td *ngIf="genres">{{genres.length}}</td>
+                <td *ngIf="!genres">0</td>
+            </tr>
         </tbody>
     </table>
 </div>

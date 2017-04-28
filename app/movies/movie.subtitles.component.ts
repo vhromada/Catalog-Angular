@@ -1,23 +1,20 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {Movie} from "./movie";
+import {Component, Input, OnInit} from '@angular/core';
+import {Movie} from './movie';
 
 @Component({
-  selector: 'movie-subtitles',
-  template: '{{data}}'
+    selector: 'movie-subtitles',
+    template: '{{data}}'
 })
 export class MovieSubtitlesComponent implements OnInit {
 
-  @Input()
-  movie: Movie;
-  data: string;
+    @Input()
+    movie: Movie;
+    data: string;
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    if (this.movie) {
-      this.data = Movie.getSubtitles(this.movie);
+    ngOnInit(): void {
+        if (this.movie) {
+            this.data = Movie.getSubtitles(this.movie);
+        }
     }
-  }
 
 }

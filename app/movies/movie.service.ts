@@ -1,13 +1,13 @@
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
-import {Movie} from "./movie";
-import {CatalogService} from "../catalog.service";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {CatalogService} from '../common/catalog.service';
+import {Movie} from './movie';
 
 @Injectable()
 export class MovieService extends CatalogService<Movie> {
 
-  constructor(http: Http) {
-    super(http, 'movies');
-  }
+    constructor(http: Http) {
+        super(http, 'movies');
+    }
 
 }

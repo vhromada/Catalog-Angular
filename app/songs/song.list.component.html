@@ -4,30 +4,30 @@
     <h2>Songs</h2>
     <table class="table table-hover" *ngIf="songs && songs.length > 0">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Length</th>
-            <th>Note</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th>Length</th>
+                <th>Note</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let song of songs; let i = index">
-            <td>{{song.name}}</td>
-            <td>
-                <song-length [song]="song"></song-length>
-            </td>
-            <td>{{song.note}}</td>
-            <td><a (click)="moveUp(song)" *ngIf="i > 0">Move up</a></td>
-            <td><a (click)="moveDown(song)" *ngIf="i < songs.length - 1">Move down</a></td>
-            <td><a (click)="duplicate(song)">Duplicate</a></td>
-            <td><a (click)="update(song)">Edit</a></td>
-            <td><a (click)="remove(song)">Remove</a></td>
-        </tr>
+            <tr *ngFor="let song of songs; let i = index">
+                <td>{{song.name}}</td>
+                <td>
+                    <song-length [song]="song"></song-length>
+                </td>
+                <td>{{song.note}}</td>
+                <td><a class="link" (click)="moveUp(song)" *ngIf="i > 0">Move up</a></td>
+                <td><a class="link" (click)="moveDown(song)" *ngIf="i < songs.length - 1">Move down</a></td>
+                <td><a class="link" (click)="duplicate(song)">Duplicate</a></td>
+                <td><a class="link" (click)="update(song)">Edit</a></td>
+                <td><a class="link" (click)="remove(song)">Remove</a></td>
+            </tr>
         </tbody>
     </table>
     <div *ngIf="!songs || songs.length == 0">No records.</div>

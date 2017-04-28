@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'show-menu',
-  templateUrl: 'app/shows/show.menu.component.html'
+    selector: 'show-menu',
+    templateUrl: './show.menu.component.html'
 })
 export class ShowMenuComponent {
 }

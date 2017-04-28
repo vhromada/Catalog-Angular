@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'game-menu',
-  templateUrl: 'app/games/game.menu.component.html'
+    selector: 'game-menu',
+    templateUrl: './game.menu.component.html'
 })
 export class GameMenuComponent {
 }

@@ -1,7 +1,7 @@
 export class Genre {
 
-  id: number;
-  name: string;
-  position: number;
+    id: number;
+    name: string;
+    position: number;
 
 }

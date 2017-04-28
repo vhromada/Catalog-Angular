@@ -14,3 +14,7 @@
 .custom {
   padding-left: 15px;
 }
+
+.link {
+  cursor: pointer;
+}

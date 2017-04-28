@@ -4,57 +4,57 @@
     <h2>Games</h2>
     <table class="table table-hover" *ngIf="games && games.length > 0">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Count of media</th>
-            <th>Additional data</th>
-            <th>Note</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th>Count of media</th>
+                <th>Additional data</th>
+                <th>Note</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let game of games; let i = index">
-            <td>{{game.name}}</td>
-            <td>{{game.mediaCount}}</td>
-            <td>
-                <game-additional-data [game]="game"></game-additional-data>
-            </td>
-            <td>{{game.note}}</td>
-            <td>
-                <a *ngIf="game.wikiCz" href="http://cz.wikipedia.org/wiki/{{game.wikiCz}}" target="_blank">Czech Wikipedia</a>
-            </td>
-            <td>
-                <a *ngIf="game.wikiEn" href="http://cz.wikipedia.org/wiki/{{game.wikiEn}}" target="_blank">English Wikipedia</a>
-            </td>
-            <td><a (click)="moveUp(game)" *ngIf="i > 0">Move up</a></td>
-            <td><a (click)="moveDown(game)" *ngIf="i < games.length - 1">Move down</a></td>
-            <td><a (click)="duplicate(game)">Duplicate</a></td>
-            <td><a (click)="update(game)">Edit</a></td>
-            <td><a (click)="remove(game)">Remove</a></td>
-        </tr>
+            <tr *ngFor="let game of games; let i = index">
+                <td>{{game.name}}</td>
+                <td>{{game.mediaCount}}</td>
+                <td>
+                    <game-additional-data [game]="game"></game-additional-data>
+                </td>
+                <td>{{game.note}}</td>
+                <td>
+                    <a *ngIf="game.wikiCz" href="http://cz.wikipedia.org/wiki/{{game.wikiCz}}" target="_blank">Czech Wikipedia</a>
+                </td>
+                <td>
+                    <a *ngIf="game.wikiEn" href="http://cz.wikipedia.org/wiki/{{game.wikiEn}}" target="_blank">English Wikipedia</a>
+                </td>
+                <td><a class="link" (click)="moveUp(game)" *ngIf="i > 0">Move up</a></td>
+                <td><a class="link" (click)="moveDown(game)" *ngIf="i < games.length - 1">Move down</a></td>
+                <td><a class="link" (click)="duplicate(game)">Duplicate</a></td>
+                <td><a class="link" (click)="update(game)">Edit</a></td>
+                <td><a class="link" (click)="remove(game)">Remove</a></td>
+            </tr>
         </tbody>
     </table>
     <div *ngIf="!games || games.length == 0">No records.</div>
     <table class="table">
         <thead>
-        <tr>
-            <th>Count of games</th>
-            <th>Count of media</th>
-        </tr>
+            <tr>
+                <th>Count of games</th>
+                <th>Count of media</th>
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td *ngIf="games">{{games.length}}</td>
-            <td *ngIf="!games">0</td>
-            <td *ngIf="mediaCount">{{mediaCount}}</td>
-            <td *ngIf="!mediaCount">0</td>
-        </tr>
+            <tr>
+                <td *ngIf="games">{{games.length}}</td>
+                <td *ngIf="!games">0</td>
+                <td *ngIf="mediaCount">{{mediaCount}}</td>
+                <td *ngIf="!mediaCount">0</td>
+            </tr>
         </tbody>
     </table>
 </div>

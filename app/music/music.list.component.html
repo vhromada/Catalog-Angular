@@ -4,65 +4,65 @@
     <h2>Music</h2>
     <table class="table table-hover" *ngIf="music && music.length > 0">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Count of media</th>
-            <th>Count of songs</th>
-            <th>Total length</th>
-            <th>Note</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th>Count of media</th>
+                <th>Count of songs</th>
+                <th>Total length</th>
+                <th>Note</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let musicItem of music; let i = index">
-            <td>{{musicItem.name}}</td>
-            <td>{{musicItem.mediaCount}}</td>
-            <td>{{musicItem.songsCount}}</td>
-            <td>{{musicItem.totalLength}}</td>
-            <td>{{musicItem.note}}</td>
-            <td>
-                <a *ngIf="musicItem.wikiCz" href="http://cz.wikipedia.org/wiki/{{musicItem.wikiCz}}" target="_blank">Czech Wikipedia</a>
-            </td>
-            <td>
-                <a *ngIf="musicItem.wikiEn" href="http://cz.wikipedia.org/wiki/{{musicItem.wikiEn}}" target="_blank">English Wikipedia</a>
-            </td>
-            <td><a routerLink="/music/{{musicItem.id}}/songs/list">Songs</a></td>
-            <td><a (click)="moveUp(musicItem)" *ngIf="i > 0">Move up</a></td>
-            <td><a (click)="moveDown(musicItem)" *ngIf="i < music.length - 1">Move down</a></td>
-            <td><a (click)="duplicate(musicItem)">Duplicate</a></td>
-            <td><a (click)="update(musicItem)">Edit</a></td>
-            <td><a (click)="remove(musicItem)">Remove</a></td>
-        </tr>
+            <tr *ngFor="let musicItem of music; let i = index">
+                <td>{{musicItem.music.name}}</td>
+                <td>{{musicItem.music.mediaCount}}</td>
+                <td>{{musicItem.songsCount}}</td>
+                <td>{{musicItem.totalLength}}</td>
+                <td>{{musicItem.music.note}}</td>
+                <td>
+                    <a *ngIf="musicItem.music.wikiCz" href="http://cz.wikipedia.org/wiki/{{musicItem.music.wikiCz}}" target="_blank">Czech Wikipedia</a>
+                </td>
+                <td>
+                    <a *ngIf="musicItem.music.wikiEn" href="http://cz.wikipedia.org/wiki/{{musicItem.music.wikiEn}}" target="_blank">English Wikipedia</a>
+                </td>
+                <td><a routerLink="/music/{{musicItem.music.id}}/songs/list">Songs</a></td>
+                <td><a class="link" (click)="moveUp(musicItem.music)" *ngIf="i > 0">Move up</a></td>
+                <td><a class="link" (click)="moveDown(musicItem.music)" *ngIf="i < music.length - 1">Move down</a></td>
+                <td><a class="link" (click)="duplicate(musicItem.music)">Duplicate</a></td>
+                <td><a class="link" (click)="update(musicItem.music)">Edit</a></td>
+                <td><a class="link" (click)="remove(musicItem.music)">Remove</a></td>
+            </tr>
         </tbody>
     </table>
     <div *ngIf="!music || music.length == 0">No records.</div>
     <table class="table">
         <thead>
-        <tr>
-            <th>Count of music</th>
-            <th>Count of media</th>
-            <th>Count of songs</th>
-            <th>Total length</th>
-        </tr>
+            <tr>
+                <th>Count of music</th>
+                <th>Count of media</th>
+                <th>Count of songs</th>
+                <th>Total length</th>
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td *ngIf="music">{{music.length}}</td>
-            <td *ngIf="!music">0</td>
-            <td *ngIf="mediaCount">{{mediaCount}}</td>
-            <td *ngIf="!mediaCount">0</td>
-            <td *ngIf="songsCount">{{songsCount}}</td>
-            <td *ngIf="!songsCount">0</td>
-            <td *ngIf="totalLength">{{totalLength}}</td>
-            <td *ngIf="!totalLength">0:00:00</td>
-        </tr>
+            <tr>
+                <td *ngIf="music">{{music.length}}</td>
+                <td *ngIf="!music">0</td>
+                <td *ngIf="mediaCount">{{mediaCount}}</td>
+                <td *ngIf="!mediaCount">0</td>
+                <td *ngIf="songsCount">{{songsCount}}</td>
+                <td *ngIf="!songsCount">0</td>
+                <td *ngIf="totalLength">{{totalLength}}</td>
+                <td *ngIf="!totalLength">0:00:00</td>
+            </tr>
         </tbody>
     </table>
 </div>

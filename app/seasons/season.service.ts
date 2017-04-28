@@ -1,21 +1,22 @@
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
-import {CatalogService} from "../catalog.service";
-import {Season} from "./season";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {CatalogService} from '../common/catalog.service';
+import {Season} from './season';
 
 @Injectable()
 export class SeasonService extends CatalogService<Season> {
 
-  showId: number;
+    showId: number;
 
-  constructor(http: Http) {
-    super(http, 'shows/{showId}/seasons');
-  }
+    constructor(http: Http) {
+        super(http, 'shows/{showId}/seasons');
+    }
 
-  getParams(): Map<string, string> {
-    let params = super.getParams();
-    params.set('showId', this.showId.toString());
+    getParams(): Map<string, string> {
+        let params = super.getParams();
+        params.set('showId', this.showId.toString());
 
-    return params;
-  }
+        return params;
+    }
+
 }

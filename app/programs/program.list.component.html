@@ -4,57 +4,57 @@
     <h2>Programs</h2>
     <table class="table table-hover" *ngIf="programs && programs.length > 0">
         <thead>
-        <tr>
-            <th>Name</th>
-            <th>Count of media</th>
-            <th>Additional data</th>
-            <th>Note</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Name</th>
+                <th>Count of media</th>
+                <th>Additional data</th>
+                <th>Note</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let program of programs; let i = index">
-            <td>{{program.name}}</td>
-            <td>{{program.mediaCount}}</td>
-            <td>
-                <program-additional-data [program]="program"></program-additional-data>
-            </td>
-            <td>{{program.note}}</td>
-            <td>
-                <a *ngIf="program.wikiCz" href="http://cz.wikipedia.org/wiki/{{program.wikiCz}}" target="_blank">Czech Wikipedia</a>
-            </td>
-            <td>
-                <a *ngIf="program.wikiEn" href="http://en.wikipedia.org/wiki/{{program.wikiEn}}" target="_blank">English Wikipedia</a>
-            </td>
-            <td><a (click)="moveUp(program)" *ngIf="i > 0">Move up</a></td>
-            <td><a (click)="moveDown(program)" *ngIf="i < programs.length - 1">Move down</a></td>
-            <td><a (click)="duplicate(program)">Duplicate</a></td>
-            <td><a (click)="update(program)">Edit</a></td>
-            <td><a (click)="remove(program)">Remove</a></td>
-        </tr>
+            <tr *ngFor="let program of programs; let i = index">
+                <td>{{program.name}}</td>
+                <td>{{program.mediaCount}}</td>
+                <td>
+                    <program-additional-data [program]="program"></program-additional-data>
+                </td>
+                <td>{{program.note}}</td>
+                <td>
+                    <a *ngIf="program.wikiCz" href="http://cz.wikipedia.org/wiki/{{program.wikiCz}}" target="_blank">Czech Wikipedia</a>
+                </td>
+                <td>
+                    <a *ngIf="program.wikiEn" href="http://en.wikipedia.org/wiki/{{program.wikiEn}}" target="_blank">English Wikipedia</a>
+                </td>
+                <td><a class="link" (click)="moveUp(program)" *ngIf="i > 0">Move up</a></td>
+                <td><a class="link" (click)="moveDown(program)" *ngIf="i < programs.length - 1">Move down</a></td>
+                <td><a class="link" (click)="duplicate(program)">Duplicate</a></td>
+                <td><a class="link" (click)="update(program)">Edit</a></td>
+                <td><a class="link" (click)="remove(program)">Remove</a></td>
+            </tr>
         </tbody>
     </table>
     <div *ngIf="!programs || programs.length == 0">No records.</div>
     <table class="table">
         <thead>
-        <tr>
-            <th>Count of programs</th>
-            <th>Count of media</th>
-        </tr>
+            <tr>
+                <th>Count of programs</th>
+                <th>Count of media</th>
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td *ngIf="programs">{{programs.length}}</td>
-            <td *ngIf="!programs">0</td>
-            <td *ngIf="mediaCount">{{mediaCount}}</td>
-            <td *ngIf="!mediaCount">0</td>
-        </tr>
+            <tr>
+                <td *ngIf="programs">{{programs.length}}</td>
+                <td *ngIf="!programs">0</td>
+                <td *ngIf="mediaCount">{{mediaCount}}</td>
+                <td *ngIf="!mediaCount">0</td>
+            </tr>
         </tbody>
     </table>
 </div>

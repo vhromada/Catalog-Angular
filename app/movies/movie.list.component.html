@@ -4,84 +4,84 @@
     <h2>Movies</h2>
     <table class="table table-hover" *ngIf="movies && movies.length > 0">
         <thead>
-        <tr>
-            <th>Czech name</th>
-            <th>Original name</th>
-            <th>Genres</th>
-            <th>Year</th>
-            <th>Language</th>
-            <th>Subtitles</th>
-            <th>Media</th>
-            <th>Total length</th>
-            <th>Picture</th>
-            <th>Note</th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-        </tr>
+            <tr>
+                <th>Czech name</th>
+                <th>Original name</th>
+                <th>Genres</th>
+                <th>Year</th>
+                <th>Language</th>
+                <th>Subtitles</th>
+                <th>Media</th>
+                <th>Total length</th>
+                <th>Picture</th>
+                <th>Note</th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let movie of movies; let i = index">
-            <td>{{movie.czechName}}</td>
-            <td>{{movie.originalName}}</td>
-            <td>
-                <movie-genres [movie]="movie"></movie-genres>
-            </td>
-            <td>{{movie.year}}</td>
-            <td>{{movie.language}}</td>
-            <td>
-                <movie-subtitles [movie]="movie"></movie-subtitles>
-            </td>
-            <td>{{movie.media.length}}</td>
-            <td>
-                <movie-length [movie]="movie"></movie-length>
-            </td>
-            <td>{{movie.picture}}</td>
-            <td>{{movie.note}}</td>
-            <td>
-                <a *ngIf="movie.csfd" href="http://www.csfd.cz/film/{{movie.csfd}}" target="_blank">ČSFD</a>
-            </td>
-            <td>
-                <a *ngIf="movie.imdbCode > 0" href="http://www.imdb.com/title/tt{{movie.imdbCode}}" target="_blank">IMDB</a>
-            </td>
-            <td>
-                <a *ngIf="movie.wikiCz" href="http://cz.wikipedia.org/wiki/{{movie.wikiCz}}" target="_blank">Czech Wikipedia</a>
-            </td>
-            <td>
-                <a *ngIf="movie.wikiEn" href="http://en.wikipedia.org/wiki/{{movie.wikiEn}}" target="_blank">English Wikipedia</a>
-            </td>
-            <td><a (click)="moveUp(movie)" *ngIf="i > 0">Move up</a></td>
-            <td><a (click)="moveDown(movie)" *ngIf="i < movies.length - 1">Move down</a></td>
-            <td><a (click)="duplicate(movie)">Duplicate</a></td>
-            <td><a (click)="update(movie)">Edit</a></td>
-            <td><a (click)="remove(movie)">Remove</a></td>
-        </tr>
+            <tr *ngFor="let movie of movies; let i = index">
+                <td>{{movie.czechName}}</td>
+                <td>{{movie.originalName}}</td>
+                <td>
+                    <movie-genres [movie]="movie"></movie-genres>
+                </td>
+                <td>{{movie.year}}</td>
+                <td>{{movie.language}}</td>
+                <td>
+                    <movie-subtitles [movie]="movie"></movie-subtitles>
+                </td>
+                <td>{{movie.media.length}}</td>
+                <td>
+                    <movie-length [movie]="movie"></movie-length>
+                </td>
+                <td>{{movie.picture}}</td>
+                <td>{{movie.note}}</td>
+                <td>
+                    <a *ngIf="movie.csfd" href="http://www.csfd.cz/film/{{movie.csfd}}" target="_blank">ČSFD</a>
+                </td>
+                <td>
+                    <a *ngIf="movie.imdbCode > 0" href="http://www.imdb.com/title/tt{{movie.imdbCode}}" target="_blank">IMDB</a>
+                </td>
+                <td>
+                    <a *ngIf="movie.wikiCz" href="http://cz.wikipedia.org/wiki/{{movie.wikiCz}}" target="_blank">Czech Wikipedia</a>
+                </td>
+                <td>
+                    <a *ngIf="movie.wikiEn" href="http://en.wikipedia.org/wiki/{{movie.wikiEn}}" target="_blank">English Wikipedia</a>
+                </td>
+                <td><a class="link" (click)="moveUp(movie)" *ngIf="i > 0">Move up</a></td>
+                <td><a class="link" (click)="moveDown(movie)" *ngIf="i < movies.length - 1">Move down</a></td>
+                <td><a class="link" (click)="duplicate(movie)">Duplicate</a></td>
+                <td><a class="link" (click)="update(movie)">Edit</a></td>
+                <td><a class="link" (click)="remove(movie)">Remove</a></td>
+            </tr>
         </tbody>
     </table>
     <div *ngIf="!movies || movies.length == 0">No records.</div>
     <table class="table">
         <thead>
-        <tr>
-            <th>Count of movies</th>
-            <th>Total length</th>
-            <th>Count of media</th>
-        </tr>
+            <tr>
+                <th>Count of movies</th>
+                <th>Total length</th>
+                <th>Count of media</th>
+            </tr>
         </thead>
         <tbody>
-        <tr>
-            <td *ngIf="movies">{{movies.length}}</td>
-            <td *ngIf="!movies">0</td>
-            <td *ngIf="totalLength">{{totalLength}}</td>
-            <td *ngIf="!totalLength">0:00:00</td>
-            <td *ngIf="mediaCount">{{mediaCount}}</td>
-            <td *ngIf="!mediaCount">0</td>
-        </tr>
+            <tr>
+                <td *ngIf="movies">{{movies.length}}</td>
+                <td *ngIf="!movies">0</td>
+                <td *ngIf="totalLength">{{totalLength}}</td>
+                <td *ngIf="!totalLength">0:00:00</td>
+                <td *ngIf="mediaCount">{{mediaCount}}</td>
+                <td *ngIf="!mediaCount">0</td>
+            </tr>
         </tbody>
     </table>
 </div>

@@ -1,25 +1,25 @@
-import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
-import {Music} from "./music";
-import {CatalogService} from "../catalog.service";
+import {Injectable} from '@angular/core';
+import {Http} from '@angular/http';
+import {CatalogService} from '../common/catalog.service';
+import {Music} from './music';
 
 @Injectable()
 export class MusicService extends CatalogService<Music> {
 
-  constructor(http: Http) {
-    super(http, 'music');
-  }
+    constructor(http: Http) {
+        super(http, 'music');
+    }
 
-  totalMedia(): Promise<any> {
-    return this.get('totalMedia');
-  }
+    totalMedia(): Promise<number> {
+        return this.get('totalMedia');
+    }
 
-  totalLength(): Promise<any> {
-    return this.get('totalLength');
-  }
+    totalLength(): Promise<number> {
+        return this.get('totalLength');
+    }
 
-  songsCount(): Promise<any> {
-    return this.get('songsCount');
-  }
+    songsCount(): Promise<number> {
+        return this.get('songsCount');
+    }
 
 }

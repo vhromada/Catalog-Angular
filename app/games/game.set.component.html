@@ -17,7 +17,6 @@
 
                 <div class="col-sm-10">
                     <input type="text" name="wikiCz" id="wikiCz" class="form-control" formControlName="wikiCz"/>
-                    <span class="error" *ngIf="formErrors.wikiCz">{{formErrors.wikiCz}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -25,7 +24,6 @@
 
                 <div class="col-sm-10">
                     <input type="text" name="wikiEn" id="wikiEn" class="form-control" formControlName="wikiEn"/>
-                    <span class="error" *ngIf="formErrors.wikiEn">{{formErrors.wikiEn}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -41,7 +39,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="crack" id="crack" formControlName="crack"/>
-                    <span class="error" *ngIf="formErrors.crack">{{formErrors.crack}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -49,7 +46,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="serialKey" id="serialKey" formControlName="serialKey"/>
-                    <span class="error" *ngIf="formErrors.serialKey">{{formErrors.serialKey}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -57,7 +53,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="crack" id="patch" formControlName="patch"/>
-                    <span class="error" *ngIf="formErrors.patch">{{formErrors.patch}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -65,7 +60,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="crack" id="trainer" formControlName="trainer"/>
-                    <span class="error" *ngIf="formErrors.trainer">{{formErrors.trainer}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -73,7 +67,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="crack" id="trainerData" formControlName="trainerData"/>
-                    <span class="error" *ngIf="formErrors.trainerData">{{formErrors.trainerData}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -81,7 +74,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="editor" id="editor" formControlName="editor"/>
-                    <span class="error" *ngIf="formErrors.editor">{{formErrors.editor}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -89,7 +81,6 @@
 
                 <div class="col-sm-10">
                     <input type="checkbox" name="saves" id="saves" formControlName="saves"/>
-                    <span class="error" *ngIf="formErrors.crack">{{formErrors.saves}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -97,7 +88,6 @@
 
                 <div class="col-sm-10">
                     <input type="text" name="name" id="otherData" class="form-control" formControlName="otherData"/>
-                    <span class="error" *ngIf="formErrors.otherData">{{formErrors.otherData}}</span>
                 </div>
             </div>
             <div class="form-group">
@@ -105,13 +95,12 @@
 
                 <div class="col-sm-10">
                     <input type="text" name="name" id="note" class="form-control" formControlName="note"/>
-                    <span class="error" *ngIf="formErrors.note">{{formErrors.note}}</span>
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" name="create" class="btn btn-primary">{{submitButtonValue}}</button>
-                    <button type="button" name="cancel" class="btn btn-danger" formnovalidate="formnovalidate" (click)="cancel()">Cancel</button>
+                    <button type="button" name="cancel" class="btn btn-danger" formnovalidate="formnovalidate" routerLink="{{returnUrl}}">Cancel</button>
                 </div>
             </div>
         </fieldset>

@@ -1,23 +1,20 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {Game} from "./game";
+import {Component, Input, OnInit} from '@angular/core';
+import {Game} from './game';
 
 @Component({
-  selector: 'game-additional-data',
-  template: '{{data}}'
+    selector: 'game-additional-data',
+    template: '{{data}}'
 })
 export class GameAdditionalDataComponent implements OnInit {
 
-  @Input()
-  game: Game;
-  data: string;
+    @Input()
+    game: Game;
+    data: string;
 
-  constructor() {
-  }
-
-  ngOnInit(): void {
-    if (this.game) {
-      this.data = Game.getAdditionalData(this.game);
+    ngOnInit(): void {
+        if (this.game) {
+            this.data = Game.getAdditionalData(this.game);
+        }
     }
-  }
 
 }

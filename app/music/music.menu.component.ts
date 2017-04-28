@@ -1,8 +1,8 @@
-import {Component} from "@angular/core";
+import {Component} from '@angular/core';
 
 @Component({
-  selector: 'music-menu',
-  templateUrl: 'app/music/music.menu.component.html'
+    selector: 'music-menu',
+    templateUrl: './music.menu.component.html'
 })
 export class MusicMenuComponent {
 }
