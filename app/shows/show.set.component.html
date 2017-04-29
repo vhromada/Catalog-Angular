@@ -6,7 +6,6 @@
         <fieldset>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="czechName">Czech name</label>
-
                 <div class="col-sm-10">
                     <input type="text" name="czechName" id="czechName" class="form-control" formControlName="czechName"/>
                     <span class="error" *ngIf="formErrors.czechName">{{formErrors.czechName}}</span>
@@ -14,7 +13,6 @@
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="originalName">Original name</label>
-
                 <div class="col-sm-10">
                     <input type="text" name="originalName" id="originalName" class="form-control" formControlName="originalName"/>
                     <span class="error" *ngIf="formErrors.originalName">{{formErrors.originalName}}</span>
@@ -29,7 +27,6 @@
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="imdb">IMDB</label>
-
                 <div class="col-sm-10">
                     <input type="checkbox" name="imdb" id="imdb" formControlName="imdb"/>
                     <div id="imdbPanel" *ngIf="imdb">
@@ -47,30 +44,26 @@
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="wikiEn">English Wikipedia</label>
-
                 <div class="col-sm-10">
                     <input type="text" name="wikiEn" id="wikiEn" class="form-control" formControlName="wikiEn"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="picture">Picture</label>
-
                 <div class="col-sm-10">
                     <input type="text" name="picture" id="picture" class="form-control" formControlName="picture"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="note">Note</label>
-
                 <div class="col-sm-10">
                     <input type="text" name="name" id="note" class="form-control" formControlName="note"/>
                 </div>
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label" for="genres">Genres</label>
-
                 <div class="col-sm-10">
-                    <select multiple="multiple" name="genres" id="genres" formControlName="genres" class="form-control">
+                    <select multiple="multiple" name="genres" id="genres" class="form-control" formControlName="genres">
                         <option *ngFor="let genre of genres; let i = index" [ngValue]="i">{{genre.name}}</option>
                     </select>
                     <span class="error" *ngIf="formErrors.genres">{{formErrors.genres}}</span>

@@ -65,7 +65,7 @@ export class ShowSetComponent implements OnInit, OnDestroy {
             picture: [],
             note: [],
             position: [],
-            genres: ['', [Validators.required]],
+            genres: ['', [Validators.required]]
         });
 
         this.genreService.list().then(genres => this.genres = genres);
@@ -153,7 +153,7 @@ export class ShowSetComponent implements OnInit, OnDestroy {
     private getGenreIndex(genre: Genre): number {
         let genreIndex = -1;
         this.genres.forEach((value, index) => {
-            if (genreIndex < 0 && genre.id === value.id && genre.name === value.name && genre.position === value.position) {
+            if (genreIndex < 0 && Genre.equals(genre, value)) {
                 genreIndex = index;
             }
         });

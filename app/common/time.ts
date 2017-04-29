@@ -1,7 +1,7 @@
 export class Time {
 
-    private static HOUR_SECONDS = 3600;
-    private static MINUTE_SECONDS = 60;
+    private static hourSeconds = 3600;
+    private static minuteSeconds = 60;
 
     hours: number;
     minutes: number;
@@ -14,16 +14,16 @@ export class Time {
     }
 
     static of(length: number): Time {
-        const temp = length % Time.HOUR_SECONDS;
-        const hours = Math.trunc(length / Time.HOUR_SECONDS);
-        const minutes = Math.trunc(temp / Time.MINUTE_SECONDS);
-        const seconds = temp % Time.MINUTE_SECONDS;
+        const temp = length % Time.hourSeconds;
+        const hours = Math.trunc(length / Time.hourSeconds);
+        const minutes = Math.trunc(temp / Time.minuteSeconds);
+        const seconds = temp % Time.minuteSeconds;
 
         return new Time(hours, minutes, seconds);
     }
 
     getLength(): number {
-        return this.hours * Time.HOUR_SECONDS + this.minutes * Time.MINUTE_SECONDS + this.seconds;
+        return this.hours * Time.hourSeconds + this.minutes * Time.minuteSeconds + this.seconds;
     }
 
 }

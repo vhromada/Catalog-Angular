@@ -31,7 +31,7 @@ export class Movie {
     }
 }
 
-interface Medium {
+export class Medium {
 
     id: number;
     length: number;

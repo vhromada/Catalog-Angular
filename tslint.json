@@ -17,11 +17,6 @@
             true,
             160
         ],
-        "member-ordering": [
-            true,
-            "public-before-private",
-            "variables-before-functions"
-        ],
         "no-arg": true,
         "no-bitwise": true,
         "no-console": [
@@ -63,8 +58,11 @@
             "always"
         ],
         "trailing-comma": [
-            false,
-            "always"
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
         ],
         "triple-equals": [
             true,

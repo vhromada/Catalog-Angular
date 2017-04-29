@@ -28,18 +28,17 @@
                     <span class="error" *ngIf="formErrors.year">{{formErrors.year}}</span>
                 </div>
             </div>
-            <!--TODO vladimir.hromada : language-->
-            <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label">Language</label>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Language</label>
 
-            <!--<div class="col-sm-10">-->
-            <!--<label class="radio custom" *ngFor="let language of languages">-->
-            <!--<input type="radio" name="language" (click)="updateLanguage(language)"/>-->
-            <!--{{language}}-->
-            <!--</label>-->
-            <!--<span class="error" *ngIf="formErrors.language">{{formErrors.language}}</span>-->
-            <!--</div>-->
-            <!--</div>-->
+                <div class="col-sm-10">
+                    <label class="radio custom" *ngFor="let language of languages">
+                        <input type="radio" name="language" formControlName="language" [value]="language"/>
+                        {{language}}
+                    </label>
+                    <span class="error" *ngIf="formErrors.language">{{formErrors.language}}</span>
+                </div>
+            </div>
             <!--TODO vladimir.hromada : subtitles-->
             <!--<div class="form-group">-->
             <!--<label class="col-sm-2 control-label">Subtitles</label>-->
@@ -107,7 +106,7 @@
                 <label class="col-sm-2 control-label" for="imdb">IMDB</label>
 
                 <div class="col-sm-10">
-                    <input type="checkbox" name="imdb" id="imdb" formControlName="imdb" (change)="onImdbShow()"/>
+                    <input type="checkbox" name="imdb" id="imdb" formControlName="imdb"/>
                     <div id="imdbPanel" *ngIf="imdb">
                         <input type="number" name="imdbCode" id="imdbCode" min="1" max="9999999" step="1" class="form-control" formControlName="imdbCode"/>
                         <span class="help-inline error" *ngIf="formErrors.imdbCode">{{formErrors.imdbCode}}</span>
@@ -146,15 +145,16 @@
                     <span class="error" *ngIf="formErrors.note">{{formErrors.note}}</span>
                 </div>
             </div>
-            <!--TODO vladimir.hromada : genres-->
-            <!--<div class="form-group">-->
-            <!--<label class="col-sm-2 control-label" for="genres">Genres</label>-->
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="genres">Genres</label>
 
-            <!--<div class="col-sm-10">-->
-            <!--<form:select multiple="true" name="genres" id="genres" path="genres" items="${genres}" itemValue="id" itemLabel="name" cssClass="form-control"/>-->
-            <!--<span class="error"><form:errors path="genres"/></span>-->
-            <!--</div>-->
-            <!--</div>-->
+                <div class="col-sm-10">
+                    <select multiple="multiple" name="genres" id="genres" class="form-control" formControlName="genres">
+                        <option *ngFor="let genre of genres; let i = index" [ngValue]="i">{{genre.name}}</option>
+                    </select>
+                    <span class="error" *ngIf="formErrors.genres">{{formErrors.genres}}</span>
+                </div>
+            </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <button type="submit" name="create" class="btn btn-primary">{{submitButtonValue}}</button>
