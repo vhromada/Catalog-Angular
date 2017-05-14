@@ -1,4 +1,5 @@
 import {Genre} from '../genres/genre';
+import {Time} from "../common/time";
 
 export class Movie {
 
@@ -20,6 +21,10 @@ export class Movie {
 
     public static getSubtitles(movie: Movie): string {
         return movie.subtitles.join(', ');
+    }
+
+    public static getMedia(movie: Movie): string {
+        return movie.media.map(medium => Time.of(medium.length).getFormattedValue()).join(', ');
     }
 
     public static getTotalLength(movie: Movie): number {

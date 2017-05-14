@@ -21,6 +21,7 @@ import {HomeComponent} from './home/home.component';
 import {MovieGenresComponent} from './movies/movie.genres.component';
 import {MovieLengthComponent} from './movies/movie.length.component';
 import {MovieListComponent} from './movies/movie.list.component';
+import {MovieMediaComponent} from "./movies/movie.media.component";
 import {MovieMenuComponent} from './movies/movie.menu.component';
 import {MovieNavigationComponent} from './movies/movie.navigation.component';
 import {MovieService} from './movies/movie.service';
@@ -64,6 +65,7 @@ import {SongSetComponent} from './songs/song.set.component';
         MovieGenresComponent,
         MovieSubtitlesComponent,
         MovieLengthComponent,
+        MovieMediaComponent,
         MovieListComponent,
         MovieSetComponent,
         MovieNavigationComponent,
