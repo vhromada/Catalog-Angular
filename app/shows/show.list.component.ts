@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {TimeService} from '../common/time.service';
 import {EpisodeService} from '../episodes/episode.service';
 import {SeasonService} from '../seasons/season.service';
 import {Show, ShowData} from './show';
 import {ShowService} from './show.service';
+import {Time} from "../common/time";
 
 @Component({
     selector: 'show-list',
@@ -20,7 +20,6 @@ export class ShowListComponent implements OnInit {
     constructor(private showService: ShowService,
                 private seasonService: SeasonService,
                 private episodeService: EpisodeService,
-                private timeService: TimeService,
                 private router: Router) {
     }
 
@@ -65,7 +64,7 @@ export class ShowListComponent implements OnInit {
                         this.episodeService.list().then(episodes => {
                             data.episodesCount += episodes.length;
                             episodes.forEach(episode => totalLength += episode.length);
-                            this.timeService.time(totalLength).then(time => data.totalLength = time);
+                            data.totalLength = Time.of(totalLength).getFormattedValue();
                         });
                     });
                 });
@@ -75,7 +74,7 @@ export class ShowListComponent implements OnInit {
         this.showService.seasonsCount().then(seasonsCount => this.seasonsCount = seasonsCount);
         this.showService.episodesCount().then(episodesCount => this.episodesCount = episodesCount);
         this.showService.totalLength().then(totalLength => {
-            this.timeService.time(totalLength).then(time => this.totalLength = time);
+            this.totalLength = Time.of(totalLength).getFormattedValue();
         });
     }
 

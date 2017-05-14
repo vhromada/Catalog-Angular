@@ -5,7 +5,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {CatalogComponent} from './catalog.component';
 import {CatalogRoutingModule} from './catalog.routing.module';
 import {LanguageService} from './common/language.service';
-import {TimeService} from './common/time.service';
 import {EpisodeService} from './episodes/episode.service';
 import {GameAdditionalDataComponent} from './games/game.additionaldata.component';
 import {GameListComponent} from './games/game.list.component';
@@ -97,7 +96,6 @@ import {SongSetComponent} from './songs/song.set.component';
         GenreNavigationComponent
     ],
     providers: [
-        TimeService,
         LanguageService,
         MovieService,
         ShowService,

@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {TimeService} from '../common/time.service';
 import {Movie} from './movie';
 import {MovieService} from './movie.service';
+import {Time} from "../common/time";
 
 @Component({
     selector: 'movie-list',
@@ -15,7 +15,6 @@ export class MovieListComponent implements OnInit {
     mediaCount: number;
 
     constructor(private movieService: MovieService,
-                private timeService: TimeService,
                 private router: Router) {
     }
 
@@ -52,7 +51,7 @@ export class MovieListComponent implements OnInit {
                 mediaCount += movie.media.length;
             });
             this.movies = movies;
-            this.timeService.time(totalLength).then(time => this.totalLength = time);
+            this.totalLength = Time.of(totalLength).getFormattedValue();
             this.mediaCount = mediaCount;
         });
     }

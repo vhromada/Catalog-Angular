@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TimeService} from '../common/time.service';
 import {Movie} from './movie';
+import {Time} from "../common/time";
 
 @Component({
     selector: 'movie-length',
@@ -12,12 +12,9 @@ export class MovieLengthComponent implements OnInit {
     movie: Movie;
     data: string;
 
-    constructor(private timeService: TimeService) {
-    }
-
     ngOnInit(): void {
         if (this.movie) {
-            this.timeService.time(Movie.getTotalLength(this.movie)).then(time => this.data = time);
+            this.data = Time.of(Movie.getTotalLength(this.movie)).getFormattedValue();
         }
     }
 
