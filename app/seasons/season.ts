@@ -9,4 +9,16 @@ export class Season {
     note: string;
     position: number;
 
+    public static getSubtitles(season: Season): string {
+        return season.subtitles.join(', ');
+    }
+
+}
+
+export class SeasonData {
+
+    season: Season;
+    episodesCount: number;
+    totalLength: string;
+
 }

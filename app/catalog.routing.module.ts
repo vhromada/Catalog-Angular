@@ -21,6 +21,9 @@ import {ShowNavigationComponent} from './shows/show.navigation.component';
 import {ShowSetComponent} from './shows/show.set.component';
 import {SongListComponent} from './songs/song.list.component';
 import {SongSetComponent} from './songs/song.set.component';
+import {SeasonListComponent} from "./seasons/season.list.component";
+import {SeasonNavigationComponent} from "./seasons/season.navigation.component";
+import {SeasonSetComponent} from "./seasons/season.set.component";
 
 const routes: Routes = [
     {
@@ -63,6 +66,22 @@ const routes: Routes = [
     {
         path: 'shows/:action',
         component: ShowNavigationComponent
+    },
+    {
+        path: 'shows/:showId/seasons/list',
+        component: SeasonListComponent
+    },
+    {
+        path: 'shows/:showId/seasons/add',
+        component: SeasonSetComponent
+    },
+    {
+        path: 'shows/:showId/seasons/edit/:seasonId',
+        component: SeasonSetComponent
+    },
+    {
+        path: 'shows/:showId/seasons/:action',
+        component: SeasonNavigationComponent
     },
     {
         path: 'games/list',

@@ -50,6 +50,12 @@ import {SongListComponent} from './songs/song.list.component';
 import {SongMenuComponent} from './songs/song.menu.component';
 import {SongService} from './songs/song.service';
 import {SongSetComponent} from './songs/song.set.component';
+import {SeasonListComponent} from "./seasons/season.list.component";
+import {SeasonMenuComponent} from "./seasons/season.menu.component";
+import {SeasonSubtitlesComponent} from "./seasons/season.subtitles.component";
+import {SeasonYearsComponent} from "./seasons/season.years.component";
+import {SeasonNavigationComponent} from "./seasons/season.navigation.component";
+import {SeasonSetComponent} from "./seasons/season.set.component";
 
 @NgModule({
     imports: [
@@ -95,7 +101,13 @@ import {SongSetComponent} from './songs/song.set.component';
         GenreMenuComponent,
         GenreListComponent,
         GenreSetComponent,
-        GenreNavigationComponent
+        GenreNavigationComponent,
+        SeasonListComponent,
+        SeasonMenuComponent,
+        SeasonSubtitlesComponent,
+        SeasonYearsComponent,
+        SeasonNavigationComponent,
+        SeasonSetComponent
     ],
     providers: [
         LanguageService,

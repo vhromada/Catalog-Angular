@@ -1,4 +1,4 @@
-import {AbstractControl, FormGroup, ValidatorFn} from '@angular/forms';
+import {AbstractControl, FormGroup, ValidatorFn} from "@angular/forms";
 
 export class Validator {
 
@@ -21,6 +21,21 @@ export class Validator {
             if (value || value === 0) {
                 const valid = minValue <= value && value <= maxValue;
                 return valid ? null : {'range': {value}};
+            }
+
+            return null;
+        };
+    }
+
+    static yearsValidator(endYearControl: AbstractControl): ValidatorFn {
+        return (control: AbstractControl): { [key: string]: any } => {
+            const startYear = control.value;
+            const endYear = endYearControl.value;
+            if (!startYear || !endYear) {
+                return null;
+            }
+            if (startYear > endYear) {
+                return {'years': {startYear}};
             }
 
             return null;

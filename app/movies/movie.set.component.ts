@@ -9,6 +9,7 @@ import {GenreService} from '../genres/genre.service';
 import {Medium, Movie} from './movie';
 import {MovieService} from './movie.service';
 import {Time} from "../common/time";
+import {Subtitles} from "../common/subtitles";
 
 @Component({
     selector: 'movie-set',
@@ -281,17 +282,6 @@ export class MovieSetComponent implements OnInit, OnDestroy {
     private setControlValidations(controlName: string, validators: ValidatorFn[]): void {
         (<FormControl>this.movieForm.controls[controlName]).setValidators(validators);
         (<FormControl>this.movieForm.controls[controlName]).updateValueAndValidity();
-    }
-
-}
-
-class Subtitles {
-
-    name: string;
-    value: boolean;
-
-    constructor(name: string) {
-        this.name = name;
     }
 
 }

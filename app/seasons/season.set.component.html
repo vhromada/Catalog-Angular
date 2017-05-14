@@ -1,0 +1,69 @@
+<season-menu></season-menu>
+
+<div class="container-fluid">
+    <h2>{{title}}</h2>
+    <form method="POST" class="form-horizontal" [formGroup]="seasonForm" (ngSubmit)="onSubmit()">
+        <fieldset>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="number">Number</label>
+
+                <div class="col-sm-10">
+                    <input type="number" name="number" id="number" min="1" max="100" step="1" class="form-control" formControlName="number"/>
+                    <span class="error" *ngIf="formErrors.number">{{formErrors.number}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="startYear">Starting year</label>
+
+                <div class="col-sm-10">
+                    <input type="number" name="startYear" id="startYear" min="1930" max="2500" step="1" class="form-control" formControlName="startYear"/>
+                    <span class="error" *ngIf="formErrors.startYear">{{formErrors.startYear}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="endYear">Ending year</label>
+
+                <div class="col-sm-10">
+                    <input type="number" name="endYear" id="endYear" min="1930" max="2500" step="1" class="form-control" formControlName="endYear"/>
+                    <span class="error" *ngIf="formErrors.endYear">{{formErrors.endYear}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Language</label>
+
+                <div class="col-sm-10">
+                    <label class="radio custom" *ngFor="let language of languages">
+                        <input type="radio" name="language" formControlName="language" [value]="language"/>
+                        {{language}}
+                    </label>
+                    <span class="error" *ngIf="formErrors.language">{{formErrors.language}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Subtitles</label>
+
+                <div class="col-sm-10" formArrayName="subtitles">
+                    <div *ngFor="let sub of seasonForm.controls.subtitles.controls; let i = index">
+                        <label class="checkbox custom" [formGroupName]="i">
+                            <input type="checkbox" name="subtitles" formControlName="value">
+                            {{sub.value.name}}
+                        </label>
+                    </div>
+                    <span class="error" *ngIf="formErrors.subtitles">{{formErrors.subtitles}}</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" for="note">Note</label>
+                <div class="col-sm-10">
+                    <input type="text" name="name" id="note" class="form-control" formControlName="note"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" name="create" class="btn btn-primary">{{submitButtonValue}}</button>
+                    <button type="button" name="cancel" class="btn btn-danger" formnovalidate="formnovalidate" routerLink="{{returnUrl}}">Cancel</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

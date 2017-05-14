@@ -1,0 +1,44 @@
+<season-menu></season-menu>
+
+<div class="container-fluid">
+    <h2>Seasons</h2>
+    <table class="table table-hover" *ngIf="seasons && seasons.length > 0">
+        <thead>
+        <tr>
+            <th>Number of season</th>
+            <th>Year</th>
+            <th>Language</th>
+            <th>Subtitles</th>
+            <th>Episodes count</th>
+            <th>Total length</th>
+            <th>Note</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let season of seasons; let i = index">
+            <td>{{season.season.number}}</td>
+            <td>
+                <season-years [season]="season.season"></season-years>
+            </td>
+            <td>{{season.season.language}}</td>
+            <td>
+                <season-subtitles [season]="season.season"></season-subtitles>
+            </td>
+            <td>{{season.episodesCount}}</td>
+            <td>{{season.totalLength}}</td>
+            <td>{{season.note}}</td>
+            <td><a class="link" (click)="moveUp(season.season)" *ngIf="i > 0">Move up</a></td>
+            <td><a class="link" (click)="moveDown(season.season)" *ngIf="i < seasons.length - 1">Move down</a></td>
+            <td><a class="link" (click)="duplicate(season.season)">Duplicate</a></td>
+            <td><a class="link" (click)="update(season.season)">Edit</a></td>
+            <td><a class="link" (click)="remove(season.season)">Remove</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!seasons || seasons.length == 0">No records.</div>
+</div>

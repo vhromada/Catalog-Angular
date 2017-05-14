@@ -22,6 +22,7 @@
                 <th></th>
                 <th></th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +49,7 @@
                 <td>
                     <a *ngIf="show.wikiEn" href="http://en.wikipedia.org/wiki/{{show.show.wikiEn}}" target="_blank">English Wikipedia</a>
                 </td>
+                <td><a routerLink="/shows/{{show.show.id}}/seasons/list">Seasons</a></td>
                 <td><a class="link" (click)="moveUp(show.show)" *ngIf="i > 0">Move up</a></td>
                 <td><a class="link" (click)="moveDown(show.show)" *ngIf="i < shows.length - 1">Move down</a></td>
                 <td><a class="link" (click)="duplicate(show.show)">Duplicate</a></td>
