@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators} from '@angular/forms';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 import {LanguageService} from '../common/language.service';
@@ -52,7 +52,6 @@ export class MovieSetComponent implements OnInit, OnDestroy {
     formValueChanges: Subscription;
     imdbValueChanges: Subscription;
     languages: string[];
-    subtitles: string[];
     genres: Genre[];
     returnUrl: string;
     imdb: boolean;
@@ -72,8 +71,8 @@ export class MovieSetComponent implements OnInit, OnDestroy {
             originalName: ['', [Validators.required]],
             year: ['', [Validators.required, Validator.rangeValidator(1930, 2500)]],
             language: ['', [Validators.required]],
-            subtitles: [],
-            media: [],
+            subtitles: this.formBuilder.array([]),
+            media: this.formBuilder.array([]),
             csfd: [],
             imdb: [],
             imdbCode: [],
@@ -86,7 +85,16 @@ export class MovieSetComponent implements OnInit, OnDestroy {
         });
 
         this.languageService.list().then(languages => this.languages = languages);
-        this.languageService.subtitles().then(subtitles => this.subtitles = subtitles);
+        this.languageService.subtitles().then(subtitles => {
+            const subtitlesGroup = (<FormArray>this.movieForm.controls['subtitles']);
+            for (let item of subtitles) {
+                const subtitle = this.formBuilder.group({
+                    name: item,
+                    value: []
+                });
+                subtitlesGroup.push(subtitle);
+            }
+        });
         this.genreService.list().then(genres => this.genres = genres);
 
         this.formValueChanges = this.movieForm.valueChanges.subscribe(data => this.onValueChanged());
@@ -99,8 +107,23 @@ export class MovieSetComponent implements OnInit, OnDestroy {
             let id = params['id'];
             if (id) {
                 this.movieService.item(id).then(movie => {
-                    // TODO vladimir.hromada 12.04.2017: subtitles
-                    // TODO vladimir.hromada 12.04.2017: media
+                    movie.subtitles.forEach(sub => {
+                        const subtitlesGroup = (<FormArray>this.movieForm.controls['subtitles']);
+                        subtitlesGroup.controls.forEach(c => {
+                            let val:Subtitles = c.value;
+                            if (val.name == sub) {
+                                val.value = true;
+                            }
+                            c.patchValue(val);
+                        });
+                    });
+                    const mediaGroup = (<FormArray>this.movieForm.controls['media']);
+                    movie.media.forEach(medium => {
+                        const mediumControl = this.formBuilder.group({
+                            length: [medium.length]
+                        });
+                        mediaGroup.push(mediumControl);
+                    });
                     this.movieForm.controls['id'].patchValue(movie.id);
                     this.movieForm.controls['czechName'].patchValue(movie.czechName);
                     this.movieForm.controls['originalName'].patchValue(movie.originalName);
@@ -124,6 +147,7 @@ export class MovieSetComponent implements OnInit, OnDestroy {
                     this.submitButtonValue = 'Update';
                 });
             } else {
+                this.addMedium();
                 this.edit = false;
                 this.title = 'Add movie';
                 this.submitButtonValue = 'Create';
@@ -184,16 +208,39 @@ export class MovieSetComponent implements OnInit, OnDestroy {
         return genreIndex;
     }
 
+    private addMedium(): void {
+        const mediaGroup = (<FormArray>this.movieForm.controls['media']);
+        const mediumControl = this.formBuilder.group({
+            length: []
+        });
+        mediaGroup.push(mediumControl);
+    }
+
+    private removeMedium(i: number): void {
+        const mediaGroup = (<FormArray>this.movieForm.controls['media']);
+        mediaGroup.removeAt(i);
+    }
+
     private getMovie(): Movie {
+        let subtitles: string[] = [];
+        (<Array<Subtitles>>this.movieForm.controls['subtitles'].value).forEach(sub => {
+            if (sub.value) {
+                subtitles.push(sub.name);
+            }
+        });
+
+        let media: Medium[] = [];
+        (<Array<any>>this.movieForm.controls['media'].value).forEach((med, index) => {
+            const medium = new Medium();
+            medium.number = index + 1;
+            medium.length = med.length;
+            media.push(medium);
+        });
+
         const genres: number[] = [];
         this.movieForm.controls['genres'].value.forEach(function (genre: number) {
             genres.push(genre);
         });
-
-        // TODO media
-        const medium = new Medium();
-        medium.number = 1;
-        medium.length = 1;
 
         const movie = new Movie();
         movie.id = this.movieForm.controls['id'].value;
@@ -201,10 +248,8 @@ export class MovieSetComponent implements OnInit, OnDestroy {
         movie.originalName = this.movieForm.controls['originalName'].value;
         movie.year = this.movieForm.controls['year'].value;
         movie.language = this.movieForm.controls['language'].value;
-        // TODO subtitles
-        movie.subtitles = [];
-        // TODO media
-        movie.media = [medium];
+        movie.subtitles = subtitles;
+        movie.media = media;
         movie.csfd = this.normalizedStringValue('csfd');
         if (this.imdb) {
             movie.imdbCode = this.movieForm.controls['imdbCode'].value;
@@ -230,6 +275,17 @@ export class MovieSetComponent implements OnInit, OnDestroy {
     private setControlValidations(controlName: string, validators: ValidatorFn[]): void {
         (<FormControl>this.movieForm.controls[controlName]).setValidators(validators);
         (<FormControl>this.movieForm.controls[controlName]).updateValueAndValidity();
+    }
+
+}
+
+class Subtitles {
+
+    name: string;
+    value: boolean;
+
+    constructor(name: string) {
+        this.name = name;
     }
 
 }
