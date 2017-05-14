@@ -63,13 +63,30 @@
                         <button type="button" name="remove{{i}}" class="btn btn-danger col-sm-1" formnovalidate="formnovalidate" (click)="removeMedium(i)"
                                 *ngIf="i > 0">Remove</button>
                     </div>
-                    <div class="form-group" [formGroupName]="i">
-                        <label class="col-sm-2 control-label" for="medium{{i + 1}}Length">Medium {{i + 1}} length</label>
+                    <div [formGroupName]="i">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="medium{{i + 1}}Hours">Medium {{i + 1}} hours</label>
 
-                        <div class="col-sm-10">
-                            <input type="number" name="medium{{i + 1}}Length" id="medium{{i + 1}}Length" class="form-control" min="0" max="23" step="1"
-                                   formControlName="length"/>
-                            <span class="error" *ngIf="formErrors.length">{{formErrors.length}}</span>
+                            <div class="col-sm-10">
+                                <input type="number" name="medium{{i + 1}}Hours" id="medium{{i + 1}}Hours" min="0" max="23" step="1" class="form-control"
+                                       formControlName="hours"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="medium{{i + 1}}Minutes">Medium {{i + 1}} minutes</label>
+
+                            <div class="col-sm-10">
+                                <input type="number" name="medium{{i + 1}}Minutes" id="medium{{i + 1}}Minutes" min="0" max="59" step="1" class="form-control"
+                                       formControlName="minutes"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="medium{{i + 1}}Seconds">Medium {{i + 1}} seconds</label>
+
+                            <div class="col-sm-10">
+                                <input type="number" name="medium{{i + 1}}Seconds" id="medium{{i + 1}}Seconds" min="0" max="59" step="1" class="form-control"
+                                       formControlName="seconds"/>
+                            </div>
                         </div>
                     </div>
                 </div>

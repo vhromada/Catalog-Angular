@@ -8,6 +8,7 @@ import {Genre} from '../genres/genre';
 import {GenreService} from '../genres/genre.service';
 import {Medium, Movie} from './movie';
 import {MovieService} from './movie.service';
+import {Time} from "../common/time";
 
 @Component({
     selector: 'movie-set',
@@ -119,8 +120,11 @@ export class MovieSetComponent implements OnInit, OnDestroy {
                     });
                     const mediaGroup = (<FormArray>this.movieForm.controls['media']);
                     movie.media.forEach(medium => {
+                        const time = Time.of(medium.length);
                         const mediumControl = this.formBuilder.group({
-                            length: [medium.length]
+                            hours: [time.hours],
+                            minutes: [time.minutes],
+                            seconds: [time.seconds]
                         });
                         mediaGroup.push(mediumControl);
                     });
@@ -211,7 +215,9 @@ export class MovieSetComponent implements OnInit, OnDestroy {
     private addMedium(): void {
         const mediaGroup = (<FormArray>this.movieForm.controls['media']);
         const mediumControl = this.formBuilder.group({
-            length: []
+            hours: [],
+            minutes: [],
+            seconds: []
         });
         mediaGroup.push(mediumControl);
     }
@@ -233,7 +239,7 @@ export class MovieSetComponent implements OnInit, OnDestroy {
         (<Array<any>>this.movieForm.controls['media'].value).forEach((med, index) => {
             const medium = new Medium();
             medium.number = index + 1;
-            medium.length = med.length;
+            medium.length = new Time(med.hours, med.minutes, med.seconds).getLength();
             media.push(medium);
         });
 
