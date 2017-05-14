@@ -54,8 +54,11 @@ import {SeasonListComponent} from "./seasons/season.list.component";
 import {SeasonMenuComponent} from "./seasons/season.menu.component";
 import {SeasonSubtitlesComponent} from "./seasons/season.subtitles.component";
 import {SeasonYearsComponent} from "./seasons/season.years.component";
-import {SeasonNavigationComponent} from "./seasons/season.navigation.component";
 import {SeasonSetComponent} from "./seasons/season.set.component";
+import {EpisodeLengthComponent} from './episodes/episode.length.component';
+import {EpisodeListComponent} from './episodes/episode.list.component';
+import {EpisodeMenuComponent} from './episodes/episode.menu.component';
+import {EpisodeSetComponent} from './episodes/episode.set.component';
 
 @NgModule({
     imports: [
@@ -106,8 +109,11 @@ import {SeasonSetComponent} from "./seasons/season.set.component";
         SeasonMenuComponent,
         SeasonSubtitlesComponent,
         SeasonYearsComponent,
-        SeasonNavigationComponent,
-        SeasonSetComponent
+        SeasonSetComponent,
+        EpisodeLengthComponent,
+        EpisodeMenuComponent,
+        EpisodeListComponent,
+        EpisodeSetComponent
     ],
     providers: [
         LanguageService,

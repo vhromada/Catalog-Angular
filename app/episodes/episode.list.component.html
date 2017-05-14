@@ -1,0 +1,36 @@
+<episode-menu></episode-menu>
+
+<div class="container-fluid">
+    <h2>Episodes</h2>
+    <table class="table table-hover" *ngIf="episodes && episodes.length > 0">
+        <thead>
+        <tr>
+            <th>Number</th>
+            <th>Name</th>
+            <th>Length</th>
+            <th>Note</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let episode of episodes; let i = index">
+            <td>{{episode.number}}</td>
+            <td>{{episode.name}}</td>
+            <td>
+                <episode-length [episode]="episode"></episode-length>
+            </td>
+            <td>{{episode.note}}</td>
+            <td><a class="link" (click)="moveUp(episode)" *ngIf="i > 0">Move up</a></td>
+            <td><a class="link" (click)="moveDown(episode)" *ngIf="i < episodes.length - 1">Move down</a></td>
+            <td><a class="link" (click)="duplicate(episode)">Duplicate</a></td>
+            <td><a class="link" (click)="update(episode)">Edit</a></td>
+            <td><a class="link" (click)="remove(episode)">Remove</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div *ngIf="!episodes || episodes.length == 0">No records.</div>
+</div>

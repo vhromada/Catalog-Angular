@@ -22,8 +22,9 @@ import {ShowSetComponent} from './shows/show.set.component';
 import {SongListComponent} from './songs/song.list.component';
 import {SongSetComponent} from './songs/song.set.component';
 import {SeasonListComponent} from "./seasons/season.list.component";
-import {SeasonNavigationComponent} from "./seasons/season.navigation.component";
 import {SeasonSetComponent} from "./seasons/season.set.component";
+import {EpisodeListComponent} from "./episodes/episode.list.component";
+import {EpisodeSetComponent} from "./episodes/episode.set.component";
 
 const routes: Routes = [
     {
@@ -80,8 +81,16 @@ const routes: Routes = [
         component: SeasonSetComponent
     },
     {
-        path: 'shows/:showId/seasons/:action',
-        component: SeasonNavigationComponent
+        path: 'shows/:showId/seasons/:seasonId/episodes/list',
+        component: EpisodeListComponent
+    },
+    {
+        path: 'shows/:showId/seasons/:seasonId/episodes/add',
+        component: EpisodeSetComponent
+    },
+    {
+        path: 'shows/:showId/seasons/:seasonId/episodes/edit/:episodeId',
+        component: EpisodeSetComponent
     },
     {
         path: 'games/list',
