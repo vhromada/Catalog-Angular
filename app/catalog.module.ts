@@ -5,7 +5,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {CatalogComponent} from './catalog.component';
 import {CatalogRoutingModule} from './catalog.routing.module';
 import {LanguageService} from './common/language.service';
+import {EpisodeLengthComponent} from './episodes/episode.length.component';
+import {EpisodeListComponent} from './episodes/episode.list.component';
+import {EpisodeMenuComponent} from './episodes/episode.menu.component';
 import {EpisodeService} from './episodes/episode.service';
+import {EpisodeSetComponent} from './episodes/episode.set.component';
 import {GameAdditionalDataComponent} from './games/game.additionaldata.component';
 import {GameListComponent} from './games/game.list.component';
 import {GameMenuComponent} from './games/game.menu.component';
@@ -21,7 +25,7 @@ import {HomeComponent} from './home/home.component';
 import {MovieGenresComponent} from './movies/movie.genres.component';
 import {MovieLengthComponent} from './movies/movie.length.component';
 import {MovieListComponent} from './movies/movie.list.component';
-import {MovieMediaComponent} from "./movies/movie.media.component";
+import {MovieMediaComponent} from './movies/movie.media.component';
 import {MovieMenuComponent} from './movies/movie.menu.component';
 import {MovieNavigationComponent} from './movies/movie.navigation.component';
 import {MovieService} from './movies/movie.service';
@@ -38,7 +42,12 @@ import {ProgramMenuComponent} from './programs/program.menu.component';
 import {ProgramNavigationComponent} from './programs/program.navigation.component';
 import {ProgramService} from './programs/program.service';
 import {ProgramSetComponent} from './programs/program.set.component';
+import {SeasonListComponent} from './seasons/season.list.component';
+import {SeasonMenuComponent} from './seasons/season.menu.component';
 import {SeasonService} from './seasons/season.service';
+import {SeasonSetComponent} from './seasons/season.set.component';
+import {SeasonSubtitlesComponent} from './seasons/season.subtitles.component';
+import {SeasonYearsComponent} from './seasons/season.years.component';
 import {ShowGenresComponent} from './shows/show.genres.component';
 import {ShowListComponent} from './shows/show.list.component';
 import {ShowMenuComponent} from './shows/show.menu.component';
@@ -50,15 +59,6 @@ import {SongListComponent} from './songs/song.list.component';
 import {SongMenuComponent} from './songs/song.menu.component';
 import {SongService} from './songs/song.service';
 import {SongSetComponent} from './songs/song.set.component';
-import {SeasonListComponent} from "./seasons/season.list.component";
-import {SeasonMenuComponent} from "./seasons/season.menu.component";
-import {SeasonSubtitlesComponent} from "./seasons/season.subtitles.component";
-import {SeasonYearsComponent} from "./seasons/season.years.component";
-import {SeasonSetComponent} from "./seasons/season.set.component";
-import {EpisodeLengthComponent} from './episodes/episode.length.component';
-import {EpisodeListComponent} from './episodes/episode.list.component';
-import {EpisodeMenuComponent} from './episodes/episode.menu.component';
-import {EpisodeSetComponent} from './episodes/episode.set.component';
 
 @NgModule({
     imports: [
@@ -83,6 +83,15 @@ import {EpisodeSetComponent} from './episodes/episode.set.component';
         ShowListComponent,
         ShowSetComponent,
         ShowNavigationComponent,
+        SeasonMenuComponent,
+        SeasonSubtitlesComponent,
+        SeasonYearsComponent,
+        SeasonListComponent,
+        SeasonSetComponent,
+        EpisodeLengthComponent,
+        EpisodeMenuComponent,
+        EpisodeListComponent,
+        EpisodeSetComponent,
         GameMenuComponent,
         GameAdditionalDataComponent,
         GameListComponent,
@@ -92,8 +101,8 @@ import {EpisodeSetComponent} from './episodes/episode.set.component';
         MusicListComponent,
         MusicSetComponent,
         MusicNavigationComponent,
-        SongLengthComponent,
         SongMenuComponent,
+        SongLengthComponent,
         SongListComponent,
         SongSetComponent,
         ProgramMenuComponent,
@@ -104,16 +113,7 @@ import {EpisodeSetComponent} from './episodes/episode.set.component';
         GenreMenuComponent,
         GenreListComponent,
         GenreSetComponent,
-        GenreNavigationComponent,
-        SeasonListComponent,
-        SeasonMenuComponent,
-        SeasonSubtitlesComponent,
-        SeasonYearsComponent,
-        SeasonSetComponent,
-        EpisodeLengthComponent,
-        EpisodeMenuComponent,
-        EpisodeListComponent,
-        EpisodeSetComponent
+        GenreNavigationComponent
     ],
     providers: [
         LanguageService,

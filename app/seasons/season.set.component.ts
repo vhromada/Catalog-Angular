@@ -94,7 +94,7 @@ export class SeasonSetComponent implements OnInit, OnDestroy {
                         const subtitlesGroup = (<FormArray>this.seasonForm.controls['subtitles']);
                         subtitlesGroup.controls.forEach(c => {
                             let val: Subtitles = c.value;
-                            if (val.name == sub) {
+                            if (val.name === sub) {
                                 val.value = true;
                             }
                             c.patchValue(val);

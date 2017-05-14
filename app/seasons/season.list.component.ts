@@ -63,7 +63,7 @@ export class SeasonListComponent implements OnInit {
                 this.episodeService.seasonId = season.id;
                 this.episodeService.list().then(episodes => {
                     data.episodesCount = episodes.length;
-                    episodes.forEach(eposide => totalLength += eposide.length);
+                    episodes.forEach(episode => totalLength += episode.length);
                     data.totalLength = Time.of(totalLength).getFormattedValue();
                 });
                 this.seasons.push(data);

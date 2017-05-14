@@ -38,16 +38,16 @@
                 <td>{{show.show.picture}}</td>
                 <td>{{show.show.note}}</td>
                 <td>
-                    <a *ngIf="show.csfd" href="http://www.csfd.cz/film/{{show.show.csfd}}" target="_blank">ČSFD</a>
+                    <a *ngIf="show.show.csfd" href="http://www.csfd.cz/film/{{show.show.csfd}}" target="_blank">ČSFD</a>
                 </td>
                 <td>
-                    <a *ngIf="show.imdbCode > 0" href="http://www.imdb.com/title/tt{{show.show.imdbCode}}" target="_blank">IMDB</a>
+                    <a *ngIf="show.show.imdbCode > 0" href="http://www.imdb.com/title/tt{{show.show.imdbCode}}" target="_blank">IMDB</a>
                 </td>
                 <td>
-                    <a *ngIf="show.wikiCz" href="http://cz.wikipedia.org/wiki/{{show.show.wikiCz}}" target="_blank">Czech Wikipedia</a>
+                    <a *ngIf="show.show.wikiCz" href="http://cz.wikipedia.org/wiki/{{show.show.wikiCz}}" target="_blank">Czech Wikipedia</a>
                 </td>
                 <td>
-                    <a *ngIf="show.wikiEn" href="http://en.wikipedia.org/wiki/{{show.show.wikiEn}}" target="_blank">English Wikipedia</a>
+                    <a *ngIf="show.show.wikiEn" href="http://en.wikipedia.org/wiki/{{show.show.wikiEn}}" target="_blank">English Wikipedia</a>
                 </td>
                 <td><a routerLink="/shows/{{show.show.id}}/seasons/list">Seasons</a></td>
                 <td><a class="link" (click)="moveUp(show.show)" *ngIf="i > 0">Move up</a></td>

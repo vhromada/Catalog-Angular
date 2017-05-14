@@ -1,5 +1,7 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
+import {EpisodeListComponent} from './episodes/episode.list.component';
+import {EpisodeSetComponent} from './episodes/episode.set.component';
 import {GameListComponent} from './games/game.list.component';
 import {GameNavigationComponent} from './games/game.navigation.component';
 import {GameSetComponent} from './games/game.set.component';
@@ -16,15 +18,13 @@ import {MusicSetComponent} from './music/music.set.component';
 import {ProgramListComponent} from './programs/program.list.component';
 import {ProgramNavigationComponent} from './programs/program.navigation.component';
 import {ProgramSetComponent} from './programs/program.set.component';
+import {SeasonListComponent} from './seasons/season.list.component';
+import {SeasonSetComponent} from './seasons/season.set.component';
 import {ShowListComponent} from './shows/show.list.component';
 import {ShowNavigationComponent} from './shows/show.navigation.component';
 import {ShowSetComponent} from './shows/show.set.component';
 import {SongListComponent} from './songs/song.list.component';
 import {SongSetComponent} from './songs/song.set.component';
-import {SeasonListComponent} from "./seasons/season.list.component";
-import {SeasonSetComponent} from "./seasons/season.set.component";
-import {EpisodeListComponent} from "./episodes/episode.list.component";
-import {EpisodeSetComponent} from "./episodes/episode.set.component";
 
 const routes: Routes = [
     {
@@ -34,7 +34,7 @@ const routes: Routes = [
     },
     {
         path: 'catalog',
-        component: HomeComponent,
+        component: HomeComponent
     },
     {
         path: 'movies/list',

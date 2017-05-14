@@ -31,7 +31,7 @@
             </td>
             <td>{{season.episodesCount}}</td>
             <td>{{season.totalLength}}</td>
-            <td>{{season.note}}</td>
+            <td>{{season.season.note}}</td>
             <td><a class="link" (click)="moveUp(season.season)" *ngIf="i > 0">Move up</a></td>
             <td><a class="link" (click)="moveDown(season.season)" *ngIf="i < seasons.length - 1">Move down</a></td>
             <td><a class="link" (click)="duplicate(season.season)">Duplicate</a></td>
